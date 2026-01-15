@@ -1,0 +1,987 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++编程课程知识点分析表</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #10b981;
+            --accent-color: #f59e0b;
+            --background-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* 头部 */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 主要内容 */
+        .main-content {
+            padding: 3rem 0;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        /* 表格样式 */
+        .table-container {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        .课次 {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* 悬停 */
+        :root {
+          --geography-color: #8b5cf6;
+        }
+
+        /* 学科标签 */
+        .subject-tag {
+          display: inline-block;
+          background: var(--secondary-color);
+          color: white;
+          padding: 0.25rem 0.5rem;
+          border-radius: 24px;
+          font-size: 0.6rem;
+          margin: 0.25rem;
+          transition: all 0.2s ease;
+        }
+
+        .subject-tag:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subject-tag.math { background: var(--primary-color); }
+        .subject-tag.english { background: var(--accent-color); }
+        .subject-tag.science { background: var(--secondary-color); }
+        .subject-tag.geography { background: var(--geography-color); }
+
+        /* 时间轴 */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.75rem;
+            top: 1.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid var(--card-bg);
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* 特色卡片 */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            flex: 1;
+            min-width: 300px;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .feature-card {
+                min-width: 100%;
+            }
+
+            th, td {
+                padding: 0.5rem;
+                font-size: 0.8rem;
+            }
+
+            .timeline {
+                padding-left: 1rem;
+            }
+        }
+
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--background-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <img src="https://hp-logo-1387549643.cos.ap-guangzhou.myqcloud.com/mmexport1715331610799.jpg" alt="C++ Logo" style="width: 100px; height: 50px; margin-right: 8px; vertical-align: middle;">
+                     信息竞赛中心--信息学课程
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#overview">课程概述</a></li>
+                    <li><a href="#analysis">知识点分析</a></li>
+                    <li><a href="#subjects">学科融合</a></li>
+                    <li><a href="#implementation">教学实施</a></li>
+                    <li><a href="#innovation">课程创新</a></li>
+                </ul>
+                <button class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 头部 -->
+    <section class="hero">
+        <div class="container">
+            <h1 data-aos="fade-up">C++编程课程知识点分析表</h1>
+            <p data-aos="fade-up" data-aos-delay="200">
+                基于学校学科课程标准的深度分析，实现编程教育与学科教育的有机融合
+            </p>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 课程概述 -->
+            <section id="overview" class="section" data-aos="fade-up">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    课程总体设计说明
+                </h2>
+                <div class="card">
+                    <p>本课程体系以"编程思维培养"为核心目标，将C++编程知识点与小学、初中阶段的数学、语文、英语、科学、地理等学科进行有机融合。课程设计遵循"由浅入深、循序渐进"的原则，从五年级开始引入基础编程概念，逐步过渡到六年级的综合应用，再到初中阶段的面向对象编程和算法优化。</p>
+                    
+                    <div class="feature-grid" style="margin-top: 2rem;">
+                        <div class="feature-card">
+                            <h3><i class="fas fa-seedling"></i> 基础阶段（五年级）</h3>
+                            <p>聚焦于编程基础语法和简单数据结构，结合数学的数的认识和运算，语文的汉字结构学习。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3><i class="fas fa-chart-line"></i> 进阶阶段（六年级）</h3>
+                            <p>强调数据处理、字符串操作和算法初步，融合数学的统计概率和科学的数据分析。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3><i class="fas fa-cogs"></i> 深化阶段（初中）</h3>
+                            <p>深入面向对象编程和复杂算法实现，结合数学抽象概念和地理空间分析。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 知识点分析表 -->
+            <section id="analysis" class="section" data-aos="fade-up">
+                <h2 class="section-title">
+                    <i class="fas fa-table"></i>
+                    C++编程课程知识点分析表
+                </h2>
+                <div class="card">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>课次</th>
+                                    <th>主题</th>
+                                    <th>编程知识点</th>
+                                    <th>学科知识点</th>
+                                    <th>学科分类<br>（年级）</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="课次">1</td>
+                                    <td>初识C++程序</td>
+                                    <td>1. Dev-C++ 基础操作<br>2. C++ 输入输出（cout/cin）<br>3. 变量认知与使用<br>4. 简单编程实践（图形输出、数值运算）</td>
+                                    <td>1. 数字表示与运算、数据逻辑<br>2. 编程工具操作、代码基础语法<br>3. 符号认知与使用、顺序逻辑表达</td>
+                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">语文（五年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">2</td>
+                                    <td>运算符和字符</td>
+                                    <td>1. 算术运算符（+-*/%）与复合运算符（+= -= *= /= %=）<br>2. char 类型定义、字符输入输出及 ASCII 编码应用<br>3. 单行注释（//）、多行注释（/* */）与关键字认知<br>4. 数位分离、字符转换、时间换算等OJ基础题解答</td>
+                                    <td>1. 四则运算、取余运算、运算优先级逻辑<br>2. 字符与数字的区别与关联<br>3. 代码注释规范与关键字使用规则<br>4. 数位拆分、时间单位换算等应用逻辑</td>
+                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">语文（四年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">3</td>
+                                    <td>分支结构（一）</td>
+                                    <td>1. 比较运算符（>、<、>=、<=、==、!=）<br>2. bool 类型（true/false）定义、赋值及运算特性<br>3. 单分支 if 语句、双分支 if-else 语句语法与执行逻辑<br>4. 简单分支结构编程实践（费用计算、购买判断等基础题<br>5. 流程图基础符号与简单绘制</td>
+                                    <td>1. 数值大小比较逻辑、运算优先级规则<br>2. 布尔值真假判断与数据真假性认知<br>3. 分支选择思维（费用计算、购买决策）<br>4. 流程可视化表达（流程图）</td>
+                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">语文（四年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">4</td>
+                                    <td>分支结构（二）</td>
+                                    <td>1. 复合语句（{} 包裹多条语句）与代码缩进规范<br>2. if 语句嵌套语法及多层条件执行逻辑<br>3. 逻辑运算符（&&、||、!）的使用规则与优先级<br>4. 三数排序、闰年判断、报数游戏等分支结构编程实践</td>
+                                    <td>1. 逻辑关系（并且 / 或者 / 否定）优先级<br>2. 嵌套逻辑分析与多层条件筛选思维<br>3. 闰年规则、数值排序等实际场景应用逻辑<br>4. 代码格式规范与可读性要求</td>
+                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">语文（四年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">5</td>
+                                    <td>分支结构（三）</td>
+                                    <td>1. if-else 多分支语句语法及执行逻辑<br>2. switch 语句（case、default、break）语法、注意事项及执行流程<br>3. case 合并用法<br>4. 成绩等级判断、自定义计算器等分支结构编程实践</td>
+                                    <td>1. 多条件筛选与分支选择逻辑<br>2. 数值范围判断与分类思维<br>3. 运算符号匹配与计算逻辑</td>
+                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">语文（四年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">6</td>
+                                    <td>初识循环（一）（上）</td>
+                                    <td>1.语法（表达式 1、表达式 2、表达式 3）及执行逻辑<br>2. 循环变量、循环条件、循环步长的设置<br>3. 自增（++）、自减（--）运算符的使用及前后缀区别</td>
+                                    <td>1. 重复执行逻辑与计数思维<br>2. 范围筛选与数值运算逻辑<br>3. 运算符优先级认知<br>4. 高效解题思路（减少循环次数）</td>
+                                    <td><span class="subject-tag math">数学（五年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">6</td>
+                                    <td>初识循环（一）（下）</td>
+                                    <td>1. break（终止循环）与 continue（跳过本次循环）语句<br>2. 循环枚举、统计计数的编程思路<br>3. 等差数列、斐波那契数列等数列问题的实现<br>4. 最长连号、围长方形等综合问题实践</td>
+                                    <td>1. 循环控制逻辑与条件筛选思维<br>2. 统计计数与数据规律分析<br>3. 数列规律总结与数学逻辑应用<br>4. 实际场景中的循环枚举与优化</td>
+                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">语文（五年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">7</td>
+                                    <td>初识循环（二）</td>
+                                    <td>1. while 循环语法、执行逻辑及应用场景<br>2. do-while（先执行后判断）语法及使用场景<br>3. for/while/do-while 循环的区别与转换<br>4. 数位分离、数列求和、数组元素求和等循环综合实践</td>
+                                    <td>1. 循环逻辑与条件判断思维<br>2. 未知循环次数的问题解决思路<br>3. 数位运算/规律/操作等数学与编程结合应用<br>4. 不同循环结构的场景适配选择</td>
+                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">语文（四年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">8</td>
+                                    <td>数组</td>
+                                    <td>1. 数组定义（数据类型/数组名/长度）、下标规则及索引<br>2. 数组初始化（指定元素、省略长度、自动补0等）<br>3. 数组遍历（正序、倒序）及常见易错点（下标越界、垃圾数据、赋值规范）</td>
+                                    <td>1. 批量数据存储与管理思维<br>2. 有序数据的遍历与筛选逻辑<br>3. 数组下标与实际场景的对应（学号、序号等）</td>
+                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag science">科学（五年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">9</td>
+                                    <td>数组进阶</td>
+                                    <td>1. 数组进阶操作：最值查找（最大值 / 最小值及对应下标）、元素插入（指定位置后移元素）、元素删除（指定位置前移元素）<br>2. const 关键字：定义常量及用于数组长度声明<br>3. 数组多场景应用：数据分类、排名统计、标志插入等</td>
+                                    <td>1. 有序数据的筛选与定位思维<br>2. 批量数据的增删改查逻辑<br>3. 常量与变量的区别及场景适配<br>4. 数据分类与统计的实际应用逻辑</td>
+                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag science">科学（六年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">10</td>
+                                    <td>数学中的进制</td>
+                                    <td>1. 常用进制（二/八/十/十六进制）、基数及表示规则<br>2. 整数/小数进制互转方法（除基取余、按权展开、乘基取整）<br>3. 进制转换编程实现（字符串处理、位权计算）</td>
+                                    <td>1. 数制计数规则与位权概念<br>2. 取余、乘除运算在进制转换中的应用<br>3. 不同进制的实际应用场景（计算机二进制、编程表示）</td>
+                                    <td><span class="subject-tag">语文（四年级）</span><br><span class="subject-tag english">英语（四年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">11</td>
+                                    <td>复习与习题精讲</td>
+                                    <td><br></td>
+                                    <td><br></td>
+                                    <td><span class="subject-tag">语文（五年级）</span><br><span class="subject-tag english">英语（五年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">12</td>
+                                    <td>阶段测评</td>
+                                    <td><br></td>
+                                    <td><br></td>
+                                    <td><span class="subject-tag">语文（五年级）</span><br><span class="subject-tag science">科学（六年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">13</td>
+                                    <td>字符数组</td>
+                                    <td>1. 字符数组定义、初始化（含 '\0' 结束标志）<br>2. 字符串输入（cin、cin.getline ()）与输出<br>3. 核心函数（strlen、strcpy、strcmp、strcat）用法<br>4. 字符串遍历与基础判断（回文串）</td>
+                                    <td>1. 字符串的本质与字符编码认知<br>2. 文本数据的存储与处理逻辑<br>3. 字符串操作的实际场景应用思维</td>
+                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">美术（五年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">14</td>
+                                    <td>string</td>
+                                    <td>1. string定义、初始化及输入输出（cin、getline ()<br>2. 长度获取（length/size）、遍历、赋值、拼接（+/-=）、比较（运算符）<br>3. 查找功能（find 函数）及子串相关操作</td>
+                                    <td>1. 字符串的存储与处理逻辑<br>2. 文本拼接、比较、查找的实际应用场景<br>3. 与字符数组的功能差异认知</td>
+                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">美术（五年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">15</td>
+                                    <td>字符串的应用</td>
+                                    <td>1. 字符串统计与筛选（数字筛选、均值计算、单词长度统计）<br>2. 字符串编码与加密（p 型编码、凯撒加密）<br>3. 回文串复原与判断<br>4. 字符串分割与单词提取（最长 / 最短单词）</td>
+                                    <td>1. 文本数据的筛选与统计逻辑<br>2. 加密算法的基础原理与应用<br>3. 回文结构的判断与复原思维<br>4. 自然语言的单词分割与提取方法</td>
+                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag science">科学（六年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">16</td>
+                                    <td>嵌套循环</td>
+                                    <td>1. 嵌套循环定义（循环体包含循环）及执行流程（外层控制行、内层控制列）<br>2. 双重 for 循环应用（图案打印、九九乘法表）<br>3. 嵌套循环实战（统计、区间计算、数位分离）</td>
+                                    <td>1. 多层循环的逻辑嵌套思维<br>2. 行列对应与规律图案的数学逻辑<br>3. 区间统计与多条件筛选的实际应用</td>
+                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag geography">地理（六年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">17</td>
+                                    <td>嵌套循环的应用</td>
+                                    <td>1. 嵌套循环枚举法应用（鸡兔同笼、百钱买百鸡）<br>2. 素数判断与统计<br>3. 复杂图案打印（沙漏、圣诞树、空心三角形）<br>4. 数学计算（阶乘累加、质因数分解）</td>
+                                    <td>1. 枚举法解决实际数学问题的逻辑<br>2. 素数、阶乘等数学概念的编程实现<br>3. 图形规律与循环变量的对应关系<br>4. 复杂数学运算的分步拆解思维</td>
+                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag science">科学（六年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">18</td>
+                                    <td>二维数组基础</td>
+                                    <td>1. 二维数组定义（数据类型 + 数组名 [行数][列数]）<br>2. 二维数组初始化（完整、部分、全0，可省略行数）<br>3. 元素访问（行下标 + 列下标）<br>4. 按行 / 按列遍历及按行输入<br>5. 基础应用（元素交换、行求和找最值）</td>
+                                    <td>1. 多行多列数据的存储逻辑<br>2. 二维结构的遍历与数据处理思维<br>3. 矩阵类数据的基础操作应用</td>
+                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag">体育（六年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">19</td>
+                                    <td>二维数组的应用（一）</td>
+                                    <td>1. 二维数组列求和、最值查找（列维度统计）<br>2. 双数组元素对比（相似度计算）<br>3. 相邻元素统计（友好数对）<br>4. 方阵特性（垂直/水平对称）与回形方阵构造（按圈填充）</td>
+                                    <td>1. 二维数据的多维度统计逻辑<br>2. 矩阵元素的位置关系与对称特性<br>3. 规律图案的编程构造思维<br>4. 数据相似度的量化计算方法</td>
+                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag science">科学（六年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">20</td>
+                                    <td>二维数组的应用（二）</td>
+                                    <td>1. 方阵进阶特性（主/副对角线对称、按对角线遍历输出）<br>2. 特殊方阵构造（左拐角方阵、回形方阵延伸）<br>3. 二维字符数组应用（最小体力值计算、扫雷游戏）<br>4. 棋盘统计（正方形与长方形数量计算）</td>
+                                    <td>1. 方阵对角线对称的数学特性<br>2. 字符矩阵的路径与计数逻辑<br>3. 棋盘图形的组合计数原理<br>4. 多方向遍历与邻域统计思维</td>
+                                    <td><span class="subject-tag">语文（五年级）</span><br><span class="subject-tag science">科学（五年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">21</td>
+                                    <td>数学中的位运算</td>
+                                    <td>1. 位运算（与& 或| 异或 ^ 左移 << 右移>>）运算规则、优先级<br>2. 常用系统函数（max/min 找最值、swap 交换、sort 排序）<br>3. 位运算应用（找奇数次出现数字）、函数实战（评分计算、分数线确定）</td>
+                                    <td>1. 二进制位操作的数学逻辑<br>2. 最值、交换、排序的算法思想<br>3. 位运算与普通运算的效率差异<br>4. 实际场景中数据处理的简化技巧</td>
+                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag science">科学（六年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">22</td>
+                                    <td>函数基础</td>
+                                    <td><br></td>
+                                    <td><br></td>
+                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag">语文（五年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">23</td>
+                                    <td>函数进阶</td>
+                                    <td><br></td>
+                                    <td><br></td>
+                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag">语文（六年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">24</td>
+                                    <td>阶段测试</td>
+                                    <td><br></td>
+                                    <td><br></td>
+                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag">语文（六年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">25</td>
+                                    <td>基础排序（一）</td>
+                                    <td>1. 排序概念（按规律重新排列数据）<br>2. 冒泡排序（相邻元素比较交换、标识位优化，时间复杂度 O (n²)）<br>3. 选择排序（找最值放指定位置，时间复杂度 O (n²)）<br>4. 排序实战（车厢重组、球员挑选）</td>
+                                    <td>1. 排序算法的核心逻辑（比较与交换）<br>2. 时间复杂度的基础认知<br>3. 稳定排序与不稳定排序的特性<br>4. 实际场景中排序的应用与步数 / 总和计算</td>
+                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag">语文（六年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">26</td>
+                                    <td>基础排序（二）</td>
+                                    <td>1. 插入排序（将元素插入已排序部分，稳定，时间复杂度 O (n²)）<br>2. 桶排序（空间换时间，通过计数下标排序，时间复杂度 O (n+k)）<br>3. sort 函数（直接调用排序，支持多类型、升/降序，需引入algorithm）</td>
+                                    <td>1. 不同排序算法的效率差异与适用场景<br>2. 空间换时间的算法设计思想<br>3. 系统函数的调用与语法规范<br>4. 字典序排序的逻辑规则</td>
+                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag">语文（六年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">27</td>
+                                    <td>结构体</td>
+                                    <td>1. 结构体定义（struct关键字+结构体名+成员变量，支持多类型组合）<br>2. 结构体变量（定义、初始化、成员访问用 “.”）<br>3. 结构体数组（存储多条复合数据，数组下标+“.”访问成员）<br>4. 实战应用（选票统计、数据筛选）</td>
+                                    <td>1. 复合数据的打包存储逻辑<br>2. 多属性数据的统一管理思维<br>3. 批量复合数据的遍历与统计方法<br>4. 实际场景中复杂数据的建模能力</td>
+                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">28</td>
+                                    <td>结构体的应用</td>
+                                    <td>1. 结构体数组排序（结合sort函数，自定义cmp规则）<br>2. 单关键字排序（按成绩、平均分等单一属性）<br>3. 多关键字排序（总分+语文+学号、年月日等组合条件）<br>4. 分组排序（按年龄分组、优先级分组后分别排序）<br>5. 实战应用（奖学金评选、生日排序、病人排队）</td>
+                                    <td>1. 多条件排序的逻辑优先级处理<br>2. 复合数据的分组与排序结合思维<br>3. 实际场景中排序规则的建模与代码转化<br>4. 结构体成员的多维度比较逻辑</td>
+                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag">语文（六年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">29</td>
+                                    <td></td>
+                                    <td><br></td>
+                                    <td><br></td>
+                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
+                                </tr>
+                                 <tr>
+                                    <td class="课次">30</td>
+                                    <td></td>
+                                    <td><br></td>
+                                    <td><br></td>
+                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">31</td>
+                                    <td></td>
+                                    <td><br></td>
+                                    <td><br></td>
+                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">32</td>
+                                    <td></td>
+                                    <td><br></td>
+                                    <td><br></td>
+                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">33</td>
+                                    <td></td>
+                                    <td><br></td>
+                                    <td><br></td>
+                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">34</td>
+                                    <td></td>
+                                    <td><br></td>
+                                    <td><br></td>
+                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">35</td>
+                                    <td></td>
+                                    <td><br></td>
+                                    <td><br></td>
+                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="课次">36</td>
+                                    <td>阶段测试</td>
+                                    <td><br></td>
+                                    <td><br></td>
+                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 学科知识点详细说明 -->
+            <section id="subjects" class="section" data-aos="fade-up">
+                <h2 class="section-title">
+                    <i class="fas fa-atom"></i>
+                    学科知识点详细说明
+                </h2>
+                
+                <div class="card">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-calculator"></i> 数学学科对应
+                    </h3>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-seedling"></i> 小学五年级数学</h4>
+                            <ul>
+                                <li><strong>数的认识与运算：</strong>自然数、整数、小数、分数的基本概念与运算</li>
+                                <li><strong>奇偶性规律：</strong>通过角谷猜想等实例理解数的奇偶性规律</li>
+                                <li><strong>数列规律：</strong>等差数列、斐波那契数列与循环结构和数组操作</li>
+                                <li><strong>乘法表应用：</strong>与循环控制和数组应用直接相关</li>
+                                <li><strong>二维坐标初步：</strong>为二维数组和矩阵操作提供数学背景</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-chart-line"></i> 小学六年级数学</h4>
+                            <ul>
+                                <li><strong>统计与概率：</strong>平均数、极值、数据分布与数组高级应用</li>
+                                <li><strong>进制转换：</strong>二进制、八进制、十六进制的数学基础</li>
+                                <li><strong>空间路径规划：</strong>迷宫、回形方阵与二维数组应用</li>
+                                <li><strong>矩阵概念：</strong>矩阵的行列关系和基本操作</li>
+                                <li><strong>算法效率：</strong>时间复杂度和空间复杂度的基本概念</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-cogs"></i> 初中数学（七年级）</h4>
+                            <ul>
+                                <li><strong>代数与函数：</strong>代数表达式、方程和函数的概念基础</li>
+                                <li><strong>抽象与具体关系：</strong>与面向对象编程中的继承和多态性</li>
+                                <li><strong>逻辑运算：</strong>布尔代数和逻辑运算的基本概念</li>
+                                <li><strong>系统思维：</strong>数学问题解决中的系统思维方法</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--secondary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-language"></i> 语文学科对应
+                    </h3>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-seedling"></i> 小学四年级语文</h4>
+                            <ul>
+                                <li><strong>汉字结构：</strong>偏旁部首、结构特点和书写规律</li>
+                                <li><strong>词语辨析：</strong>近义词、反义词的辨析和使用</li>
+                                <li><strong>标点符号规范：</strong>标点符号的正确使用方法</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-chart-line"></i> 小学五年级语文</h4>
+                            <ul>
+                                <li><strong>句子结构分析：</strong>主谓宾结构、简单句和复合句</li>
+                                <li><strong>文本逻辑：</strong>因果关系、条件关系等逻辑关系</li>
+                                <li><strong>词语搭配：</strong>词语的搭配和使用规律</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-cogs"></i> 初中语文</h4>
+                            <ul>
+                                <li><strong>信息编码与传输：</strong>信息的编码、解码和传输原理</li>
+                                <li><strong>文本处理与分析：</strong>分词、词性标注等处理方法</li>
+                                <li><strong>语言模式识别：</strong>语法结构、语义关系等规律识别</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;">
+                        <i class="fas fa-globe"></i> 其他学科对应
+                    </h3>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-globe-americas"></i> 地理学科</h4>
+                            <ul>
+                                <li><strong>方向与位置：</strong>坐标系、地图阅读等地理知识</li>
+                                <li><strong>路线图：</strong>路线图的绘制和描述方法</li>
+                                <li><strong>空间关系：</strong>空间关系的理解和表达</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-palette"></i> 美术学科</h4>
+                            <ul>
+                                <li><strong>对称图形：</strong>对称图形的特征和绘制方法</li>
+                                <li><strong>几何形状：</strong>几何形状的特征和绘制方法</li>
+                                <li><strong>色彩与图案：</strong>色彩和图案的规律和应用</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-running"></i> 体育学科</h4>
+                            <ul>
+                                <li><strong>比赛规则：</strong>体育比赛的规则和流程</li>
+                                <li><strong>团队协作：</strong>团队协作的方法和技巧</li>
+                                <li><strong>策略思维：</strong>策略思维的方法和技巧</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 教学实施建议 -->
+            <section id="implementation" class="section" data-aos="fade-up">
+                <h2 class="section-title">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    教学实施建议
+                </h2>
+                
+                <div class="card">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-route"></i> 学段衔接策略
+                    </h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">小学低年级（1-3年级）</div>
+                            <p>通过图形化编程（如Scratch）引入编程概念，培养兴趣和逻辑思维。重点学习顺序结构和简单条件判断，与数学中的数的认识和简单运算相结合。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">小学高年级（4-5年级）</div>
+                            <p>从图形化编程过渡到代码编程，学习变量、数组和字符串等基础数据结构。结合语文中的汉字结构和词语辨析，学习字符处理和字符串操作。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">初中阶段</div>
+                            <p>深入学习面向对象编程和算法设计，与数学中的抽象概念和逻辑思维相结合。结合科学和地理中的信息处理和空间分析，学习高级数据结构和算法应用。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--secondary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-puzzle-piece"></i> 学科融合方法
+                    </h3>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-calculator"></i> 数学与编程融合</h4>
+                            <p>在编程教学中引入数学问题，如角谷猜想、数列生成等，让学生通过编程解决数学问题。在数学教学中引入编程思维，如用编程中的循环结构解释数列规律。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-language"></i> 语文与编程融合</h4>
+                            <p>在编程教学中引入语文问题，如文本分析、字符处理等，让学生通过编程处理文本信息。在语文教学中引入编程思维，如用编程中的条件判断解释文本逻辑。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-globe"></i> 科学与编程融合</h4>
+                            <p>在编程教学中引入科学问题，如数据采集、信息处理等，让学生通过编程解决科学问题。在科学教学中引入编程思维，如用编程中的循环结构解释科学实验。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;">
+                        <i class="fas fa-tools"></i> 教学资源建设
+                    </h3>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-database"></i> 跨学科案例库</h4>
+                            <p>建立数学、语文、英语、科学、地理等学科与编程结合的案例库，如"角谷猜想验证"、"文本分析工具"等。案例库应包含不同难度层次的案例。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-project-diagram"></i> 项目式学习平台</h4>
+                            <p>建立项目式学习平台，提供跨学科的编程项目，如"自动批改生字作业"、"数学题自动出题"等。平台应包含项目描述、实现步骤、评估标准等。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-toolbox"></i> 教学工具包</h4>
+                            <p>开发针对不同学科的编程教学工具包，如"数学编程工具包"、"语文编程工具包"等。工具包应包含学科知识点与编程知识点的对应表。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 课程创新点与特色 -->
+            <section id="innovation" class="section" data-aos="fade-up">
+                <h2 class="section-title">
+                    <i class="fas fa-lightbulb"></i>
+                    课程创新点与特色
+                </h2>
+                
+                <div class="card">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-puzzle-piece"></i> 跨学科融合创新
+                    </h3>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-calculator"></i> 数学与编程融合</h4>
+                            <ul>
+                                <li>将数学中的数列规律、统计与概率等知识点与编程紧密结合</li>
+                                <li>通过编程解决数学问题，如角谷猜想验证、数列生成等</li>
+                                <li>通过数学问题引导编程学习，提高学生的数学兴趣和编程能力</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-language"></i> 语文与编程融合</h4>
+                            <ul>
+                                <li>将语文中的汉字结构、词语辨析等知识点与编程紧密结合</li>
+                                <li>通过编程处理文本信息，如文本分析、信息编码等</li>
+                                <li>通过文本问题引导编程学习，提高学生的语文兴趣和编程能力</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-globe"></i> 英语与编程融合</h4>
+                            <ul>
+                                <li>将英语中的字母顺序、单词构成等知识点与编程紧密结合</li>
+                                <li>通过编程处理英语信息，如单词拼写、句子生成等</li>
+                                <li>通过英语问题引导编程学习，提高学生的英语兴趣和编程能力</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--secondary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-chalkboard"></i> 教学方法创新
+                    </h3>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-project-diagram"></i> 项目式学习</h4>
+                            <p>设计跨学科的编程项目，如"自动批改生字作业"、"数学题自动出题"等。项目应包含完整的需求分析、功能设计、编码实现和测试评估等环节。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-gamepad"></i> 游戏化教学</h4>
+                            <p>将编程知识与游戏设计相结合，如"扫雷游戏"、"数字迷宫"等。游戏应包含完整的规则设计、算法实现和用户界面等环节。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-users"></i> 协作式学习</h4>
+                            <p>组织学生分组协作完成编程项目，如"团队合作开发应用程序"、"跨学科小组项目"等。协作应包含明确的角色分工和任务分配。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;">
+                        <i class="fas fa-trophy"></i> 课程核心价值
+                    </h3>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-brain"></i> 计算思维培养</h4>
+                            <p>通过编程解决学科问题，通过学科知识理解编程原理，实现两者的相互促进和共同发展，培养学生的计算思维。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-puzzle-piece"></i> 跨学科思维</h4>
+                            <p>培养学生的跨学科思维，理解不同学科之间的联系和区别，提高综合解决问题的能力。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-rocket"></i> 创新能力</h4>
+                            <p>通过项目式学习、游戏化教学和协作式学习等方法，激发学生的创新思维和实践能力。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer style="background: var(--text-color); color: white; text-align: center; padding: 2rem 0; margin-top: 3rem;">
+        <div class="container">
+            <p>本课程体系通过将编程知识点与学校学科进行深度融合，实现编程教育与学科教育的有机结合</p>
+            <p style="margin-top: 1rem; opacity: 0.7;">© 2026 华平教育 - C++编程课程体系 - 我来帮您 共赢天下</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // 初始化AOS动画
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 移动端菜单切换
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // 响应式处理
+        function handleResize() {
+            if (window.innerWidth > 768) {
+                navLinks.style.display = 'flex';
+            } else {
+                navLinks.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+        handleResize(); // 初始调用
+    </script>
+</body>
+</html>
