@@ -1,987 +1,796 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++编程课程知识点分析表</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>HP-L1 · C++大师课 | 编程赋能学科素养</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #2563eb;
-            --secondary-color: #10b981;
-            --accent-color: #f59e0b;
-            --background-color: #f8fafc;
-            --text-color: #1e293b;
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #8b5cf6;
+            --accent-color: #06b6d4;
+            --success-color: #10b981;
+            --bg-gradient-start: #0f172a;
+            --bg-gradient-mid: #1e293b;
+            --bg-gradient-end: #0f172a;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, #f0f4ff 0%, #e8f0fe 50%, #f8fafc 100%);
+            color: #1e293b;
+            scroll-behavior: smooth;
+            min-height: 100vh;
         }
-
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 28px;
         }
-
-        /* 导航栏 */
-        .navbar {
-            background: var(--card-bg);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, rgba(10, 15, 26, 0.6) 0%, rgba(15, 23, 42, 0.5) 30%, rgba(30, 41, 59, 0.45) 50%, rgba(15, 23, 42, 0.5) 70%, rgba(10, 15, 26, 0.6) 100%), url("ChatGPT Image 2026年5月15日 22_13_37.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 70px 0 80px;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            margin-bottom: 56px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(79, 70, 229, 0.2) 0%, rgba(0,0,0,0) 60%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: -20%;
+            left: -15%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(0,0,0,0) 60%);
+            pointer-events: none;
+        }
+        .hero-bg-grid {
+            position: absolute;
             top: 0;
-            z-index: 1000;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
         }
-
-        .nav-content {
+        .hero-glow-1 {
+            position: absolute;
+            top: 20%;
+            right: 15%;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(0,0,0,0) 70%);
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+        .hero-glow-2 {
+            position: absolute;
+            bottom: 30%;
+            left: 20%;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(0,0,0,0) 70%);
+            animation: glowPulse 5s ease-in-out infinite 1s;
+        }
+        .hero-glow-3 {
+            position: absolute;
+            top: 60%;
+            right: 30%;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, rgba(0,0,0,0) 70%);
+            animation: glowPulse 3s ease-in-out infinite 0.5s;
+        }
+        @keyframes glowPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(59, 130, 246, 0.15));
+            backdrop-filter: blur(8px);
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #c7d2fe;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 22px;
+            line-height: 1.1;
+        }
+        .hero h1 span {
+            background: linear-gradient(120deg, #60a5fa, #a78bfa, #38bdf8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: gradientShift 3s ease infinite;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 36px;
+            line-height: 1.6;
+            max-width: 700px;
+        }
+        .hero p strong {
+            color: #e0e7ff;
+        }
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+            padding: 12px 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-2px);
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(120deg, #60a5fa, #a78bfa);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .stat-label {
+            color: #cbd5e1;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        /* 师资模块 */
+        .teachers-section {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 32px;
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.08), 0 2px 8px rgba(0,0,0,0.04);
+            margin-bottom: 56px;
+            overflow: hidden;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        .teachers-header {
+            padding: 32px 36px 16px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(99, 102, 241, 0.03) 100%);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        .teachers-header h2 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #1e293b;
+        }
+        .teachers-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            padding: 32px 36px 44px;
+            justify-content: center;
+        }
+        .teacher-card {
+            flex: 1;
+            min-width: 260px;
+            background: white;
+            border-radius: 24px;
+            padding: 28px 24px;
+            text-align: center;
+            transition: all 0.35s ease;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+            position: relative;
+            overflow: hidden;
+        }
+        .teacher-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb, #8b5cf6, #06b6d4);
+        }
+        .teacher-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.25);
+        }
+        .teacher-avatar {
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(145deg, #60a5fa, #a78bfa);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 22px;
+            font-size: 3rem;
+            color: white;
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .teacher-card:hover .teacher-avatar {
+            transform: scale(1.05);
+        }
+        .teacher-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1e293b;
+        }
+        .teacher-title {
+            background: linear-gradient(135deg, #2563eb, #8b5cf6);
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+            padding: 4px 14px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        .teacher-desc {
+            color: #475569;
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+        /* 课程网格 */
+        .course-grid-title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin: 52px 0 28px 0;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            color: #1e293b;
+        }
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 28px;
+            margin-bottom: 64px;
+        }
+        .lesson-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+        }
+        .lesson-card:hover {
+            box-shadow: 0 12px 32px rgba(59, 130, 246, 0.1);
+            transform: translateY(-2px);
+        }
+        .lesson-header {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .mobile-menu {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary-color);
+            flex-wrap: wrap;
+            gap: 10px;
             cursor: pointer;
+            user-select: none;
+            transition: all 0.25s;
         }
-
-        /* 头部 */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        .lesson-header:hover {
+            background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+        }
+        .lesson-num {
+            font-weight: 800;
+            font-size: 0.9rem;
+            background: linear-gradient(135deg, #2563eb, #8b5cf6);
+            padding: 5px 14px;
+            border-radius: 40px;
             color: white;
-            padding: 4rem 0;
-            text-align: center;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
         }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* 主要内容 */
-        .main-content {
-            padding: 3rem 0;
-        }
-
-        .section {
-            margin-bottom: 3rem;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 2rem;
+        .lesson-name {
+            font-weight: 700;
+            font-size: 1.05rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: #1e293b;
         }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-color);
+        .toggle-icon {
+            color: #64748b;
+            font-size: 1.1rem;
+            transition: all 0.25s;
         }
-
-        /* 表格样式 */
-        .table-container {
-            overflow-x: auto;
-            margin: 2rem 0;
+        .lesson-header:hover .toggle-icon {
+            color: #2563eb;
         }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--card-bg);
-            border-radius: 8px;
+        .lesson-details {
+            padding: 0 24px;
+            max-height: 0;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: max-height 0.35s ease-out, padding 0.2s;
+            background: white;
         }
-
-        th, td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 0.9rem;
+        .lesson-card.open .lesson-details {
+            max-height: 900px;
+            padding: 22px 24px 28px;
+            border-top: 1px solid rgba(59, 130, 246, 0.08);
+        }
+        .topic-item {
+            margin-bottom: 20px;
+            border-left: 4px solid;
+            border-image: linear-gradient(180deg, #2563eb, #8b5cf6) 1;
+            padding-left: 16px;
+        }
+        .topic-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .topic-type-badge {
+            background: #eef2ff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 30px;
+            color: #4338ca;
+        }
+        .topic-core {
+            font-size: 0.85rem;
+            color: #2d3a4e;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .topic-detail {
+            font-size: 0.8rem;
+            color: #475569;
             line-height: 1.4;
         }
-
-        th {
-            background: var(--primary-color);
-            color: white;
+        .level-badge-mini {
+            background: #e2e8f0;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            padding: 2px 8px;
             font-weight: 600;
+            color: #1e293b;
         }
-
-        tr:hover {
-            background-color: #f1f5f9;
-        }
-
-        .课次 {
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        /* 悬停 */
-        :root {
-          --geography-color: #8b5cf6;
-        }
-
-        /* 学科标签 */
-        .subject-tag {
-          display: inline-block;
-          background: var(--secondary-color);
-          color: white;
-          padding: 0.25rem 0.5rem;
-          border-radius: 24px;
-          font-size: 0.6rem;
-          margin: 0.25rem;
-          transition: all 0.2s ease;
-        }
-
-        .subject-tag:hover {
-          transform: translateY(-1px);
-          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .subject-tag.math { background: var(--primary-color); }
-        .subject-tag.english { background: var(--accent-color); }
-        .subject-tag.science { background: var(--secondary-color); }
-        .subject-tag.geography { background: var(--geography-color); }
-
-        /* 时间轴 */
-        .timeline {
+        /* 编程与学科融合模块 */
+        .academic-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            border-radius: 36px;
+            margin: 56px 0 40px;
+            padding: 56px 36px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.25);
             position: relative;
-            padding-left: 2rem;
+            overflow: hidden;
         }
-
-        .timeline::before {
-            content: '';
+        .academic-section::before {
+            content: "";
             position: absolute;
-            left: 1rem;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--primary-color);
+            top: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(0,0,0,0) 60%);
+            pointer-events: none;
         }
-
-        .timeline-item {
+        .academic-section::after {
+            content: "";
+            position: absolute;
+            bottom: -20%;
+            right: -15%;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(0,0,0,0) 60%);
+            pointer-events: none;
+        }
+        .academic-header {
+            text-align: center;
+            margin-bottom: 48px;
             position: relative;
-            margin-bottom: 2rem;
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 2;
         }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -1.75rem;
-            top: 1.5rem;
-            width: 12px;
-            height: 12px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            border: 3px solid var(--card-bg);
+        .academic-header h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(120deg, #60a5fa, #a78bfa, #38bdf8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            display: inline-block;
         }
-
-        .timeline-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
+        .academic-header p {
+            color: #94a3b8;
+            max-width: 750px;
+            margin: 18px auto 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
-
-        /* 特色卡片 */
-        .feature-grid {
+        .subject-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 2rem;
-            margin: 2rem 0;
+            gap: 28px;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
         }
-
-        .feature-card {
+        .subject-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
             flex: 1;
-            min-width: 300px;
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-left: 4px solid var(--primary-color);
+            min-width: 240px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.35s ease;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .feature-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .subject-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(147, 197, 253, 0.4);
+            box-shadow: 0 24px 40px rgba(59, 130, 246, 0.25);
         }
-
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .card {
-                padding: 1.5rem;
-            }
-
-            .feature-card {
-                min-width: 100%;
-            }
-
-            th, td {
-                padding: 0.5rem;
-                font-size: 0.8rem;
-            }
-
-            .timeline {
-                padding-left: 1rem;
-            }
+        .subject-icon {
+            font-size: 2.8rem;
+            background: linear-gradient(145deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3));
+            width: 76px;
+            height: 76px;
+            line-height: 76px;
+            border-radius: 50%;
+            margin: 0 auto 22px;
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
         }
-
-        /* 滚动条样式 */
-        ::-webkit-scrollbar {
-            width: 8px;
+        .subject-card:hover .subject-icon {
+            transform: scale(1.1);
+            background: linear-gradient(145deg, rgba(59, 130, 246, 0.4), rgba(139, 92, 246, 0.4));
         }
-
-        ::-webkit-scrollbar-track {
-            background: var(--background-color);
+        .subject-card h3 {
+            font-size: 1.65rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: #f1f5f9;
         }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-color);
-            border-radius: 4px;
+        .subject-desc {
+            color: #cbd5e1;
+            font-size: 0.92rem;
+            line-height: 1.55;
+            margin-bottom: 18px;
         }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #1d4ed8;
+        .code-example {
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 16px;
+            padding: 14px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: #93c5fd;
+            text-align: left;
+            border-left: 4px solid #3b82f6;
+            backdrop-filter: blur(4px);
+        }
+        footer {
+            text-align: center;
+            padding: 48px 24px 36px;
+            color: #64748b;
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
+            margin-top: 40px;
+            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+        footer p {
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+        footer div {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        @media (max-width: 720px) {
+            .container { padding: 0 18px; }
+            .hero h1 { font-size: 2.2rem; }
+            .teachers-grid { flex-direction: column; }
+            .subject-grid { flex-direction: column; }
+            .academic-section { padding: 32px 20px; }
+            .stat-item { padding: 10px 16px; }
+            .stat-number { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <div class="logo">
-                    <img src="https://hp-logo-1387549643.cos.ap-guangzhou.myqcloud.com/mmexport1715331610799.jpg" alt="C++ Logo" style="width: 100px; height: 50px; margin-right: 8px; vertical-align: middle;">
-                     信息竞赛中心--信息学课程
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#overview">课程概述</a></li>
-                    <li><a href="#analysis">知识点分析</a></li>
-                    <li><a href="#subjects">学科融合</a></li>
-                    <li><a href="#implementation">教学实施</a></li>
-                    <li><a href="#innovation">课程创新</a></li>
-                </ul>
-                <button class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </button>
+<div class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+    <div class="hero-glow-3"></div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge"><i class="fas fa-microchip"></i> 信奥启蒙 · 竞赛级思维</div>
+            <h1><span>华平信息学L1阶段</span></h1>
+            <p>覆盖语法、算法、数据结构，对标GESP考级，<strong>36课次阶梯式教学</strong>，含循环双讲 & 数学专题深化，从“Hello World”到链表递归，每一课都是实战进阶。</p>
+            <div class="stats">
+                <div class="stat-item"><span class="stat-number">36</span><span class="stat-label">系统课次</span></div>
+                <div class="stat-item"><span class="stat-number">38</span><span class="stat-label">教学单元</span></div>
+                <div class="stat-item"><span class="stat-number">180+</span><span class="stat-label">代码实战</span></div>
+                <div class="stat-item"><span class="stat-number">3</span><span class="stat-label">GESP考级</span></div>
             </div>
         </div>
-    </nav>
-
-    <!-- 头部 -->
-    <section class="hero">
-        <div class="container">
-            <h1 data-aos="fade-up">C++编程课程知识点分析表</h1>
-            <p data-aos="fade-up" data-aos-delay="200">
-                基于学校学科课程标准的深度分析，实现编程教育与学科教育的有机融合
-            </p>
+    </div>
+</div>
+<div class="container">
+    <!-- 师资团队 -->
+    <div class="teachers-section">
+        <div class="teachers-header">
+            <h2><i class="fas fa-chalkboard-user" style="color:#4f46e5;"></i> 金牌教研团队</h2>
+            <p style="color:#475569; margin-top: 8px;">ACM/ICPC区域赛金牌得主 · NOI金牌教练 · 多年信奥授课经验</p>
         </div>
-    </section>
-
-    <!-- 主要内容 -->
-    <main class="main-content">
-        <div class="container">
-            <!-- 课程概述 -->
-            <section id="overview" class="section" data-aos="fade-up">
-                <h2 class="section-title">
-                    <i class="fas fa-graduation-cap"></i>
-                    课程总体设计说明
-                </h2>
-                <div class="card">
-                    <p>本课程体系以"编程思维培养"为核心目标，将C++编程知识点与小学、初中阶段的数学、语文、英语、科学、地理等学科进行有机融合。课程设计遵循"由浅入深、循序渐进"的原则，从五年级开始引入基础编程概念，逐步过渡到六年级的综合应用，再到初中阶段的面向对象编程和算法优化。</p>
-                    
-                    <div class="feature-grid" style="margin-top: 2rem;">
-                        <div class="feature-card">
-                            <h3><i class="fas fa-seedling"></i> 基础阶段（五年级）</h3>
-                            <p>聚焦于编程基础语法和简单数据结构，结合数学的数的认识和运算，语文的汉字结构学习。</p>
-                        </div>
-                        <div class="feature-card">
-                            <h3><i class="fas fa-chart-line"></i> 进阶阶段（六年级）</h3>
-                            <p>强调数据处理、字符串操作和算法初步，融合数学的统计概率和科学的数据分析。</p>
-                        </div>
-                        <div class="feature-card">
-                            <h3><i class="fas fa-cogs"></i> 深化阶段（初中）</h3>
-                            <p>深入面向对象编程和复杂算法实现，结合数学抽象概念和地理空间分析。</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 知识点分析表 -->
-            <section id="analysis" class="section" data-aos="fade-up">
-                <h2 class="section-title">
-                    <i class="fas fa-table"></i>
-                    C++编程课程知识点分析表
-                </h2>
-                <div class="card">
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>课次</th>
-                                    <th>主题</th>
-                                    <th>编程知识点</th>
-                                    <th>学科知识点</th>
-                                    <th>学科分类<br>（年级）</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="课次">1</td>
-                                    <td>初识C++程序</td>
-                                    <td>1. Dev-C++ 基础操作<br>2. C++ 输入输出（cout/cin）<br>3. 变量认知与使用<br>4. 简单编程实践（图形输出、数值运算）</td>
-                                    <td>1. 数字表示与运算、数据逻辑<br>2. 编程工具操作、代码基础语法<br>3. 符号认知与使用、顺序逻辑表达</td>
-                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">语文（五年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">2</td>
-                                    <td>运算符和字符</td>
-                                    <td>1. 算术运算符（+-*/%）与复合运算符（+= -= *= /= %=）<br>2. char 类型定义、字符输入输出及 ASCII 编码应用<br>3. 单行注释（//）、多行注释（/* */）与关键字认知<br>4. 数位分离、字符转换、时间换算等OJ基础题解答</td>
-                                    <td>1. 四则运算、取余运算、运算优先级逻辑<br>2. 字符与数字的区别与关联<br>3. 代码注释规范与关键字使用规则<br>4. 数位拆分、时间单位换算等应用逻辑</td>
-                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">语文（四年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">3</td>
-                                    <td>分支结构（一）</td>
-                                    <td>1. 比较运算符（>、<、>=、<=、==、!=）<br>2. bool 类型（true/false）定义、赋值及运算特性<br>3. 单分支 if 语句、双分支 if-else 语句语法与执行逻辑<br>4. 简单分支结构编程实践（费用计算、购买判断等基础题<br>5. 流程图基础符号与简单绘制</td>
-                                    <td>1. 数值大小比较逻辑、运算优先级规则<br>2. 布尔值真假判断与数据真假性认知<br>3. 分支选择思维（费用计算、购买决策）<br>4. 流程可视化表达（流程图）</td>
-                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">语文（四年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">4</td>
-                                    <td>分支结构（二）</td>
-                                    <td>1. 复合语句（{} 包裹多条语句）与代码缩进规范<br>2. if 语句嵌套语法及多层条件执行逻辑<br>3. 逻辑运算符（&&、||、!）的使用规则与优先级<br>4. 三数排序、闰年判断、报数游戏等分支结构编程实践</td>
-                                    <td>1. 逻辑关系（并且 / 或者 / 否定）优先级<br>2. 嵌套逻辑分析与多层条件筛选思维<br>3. 闰年规则、数值排序等实际场景应用逻辑<br>4. 代码格式规范与可读性要求</td>
-                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">语文（四年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">5</td>
-                                    <td>分支结构（三）</td>
-                                    <td>1. if-else 多分支语句语法及执行逻辑<br>2. switch 语句（case、default、break）语法、注意事项及执行流程<br>3. case 合并用法<br>4. 成绩等级判断、自定义计算器等分支结构编程实践</td>
-                                    <td>1. 多条件筛选与分支选择逻辑<br>2. 数值范围判断与分类思维<br>3. 运算符号匹配与计算逻辑</td>
-                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">语文（四年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">6</td>
-                                    <td>初识循环（一）（上）</td>
-                                    <td>1.语法（表达式 1、表达式 2、表达式 3）及执行逻辑<br>2. 循环变量、循环条件、循环步长的设置<br>3. 自增（++）、自减（--）运算符的使用及前后缀区别</td>
-                                    <td>1. 重复执行逻辑与计数思维<br>2. 范围筛选与数值运算逻辑<br>3. 运算符优先级认知<br>4. 高效解题思路（减少循环次数）</td>
-                                    <td><span class="subject-tag math">数学（五年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">6</td>
-                                    <td>初识循环（一）（下）</td>
-                                    <td>1. break（终止循环）与 continue（跳过本次循环）语句<br>2. 循环枚举、统计计数的编程思路<br>3. 等差数列、斐波那契数列等数列问题的实现<br>4. 最长连号、围长方形等综合问题实践</td>
-                                    <td>1. 循环控制逻辑与条件筛选思维<br>2. 统计计数与数据规律分析<br>3. 数列规律总结与数学逻辑应用<br>4. 实际场景中的循环枚举与优化</td>
-                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">语文（五年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">7</td>
-                                    <td>初识循环（二）</td>
-                                    <td>1. while 循环语法、执行逻辑及应用场景<br>2. do-while（先执行后判断）语法及使用场景<br>3. for/while/do-while 循环的区别与转换<br>4. 数位分离、数列求和、数组元素求和等循环综合实践</td>
-                                    <td>1. 循环逻辑与条件判断思维<br>2. 未知循环次数的问题解决思路<br>3. 数位运算/规律/操作等数学与编程结合应用<br>4. 不同循环结构的场景适配选择</td>
-                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">语文（四年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">8</td>
-                                    <td>数组</td>
-                                    <td>1. 数组定义（数据类型/数组名/长度）、下标规则及索引<br>2. 数组初始化（指定元素、省略长度、自动补0等）<br>3. 数组遍历（正序、倒序）及常见易错点（下标越界、垃圾数据、赋值规范）</td>
-                                    <td>1. 批量数据存储与管理思维<br>2. 有序数据的遍历与筛选逻辑<br>3. 数组下标与实际场景的对应（学号、序号等）</td>
-                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag science">科学（五年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">9</td>
-                                    <td>数组进阶</td>
-                                    <td>1. 数组进阶操作：最值查找（最大值 / 最小值及对应下标）、元素插入（指定位置后移元素）、元素删除（指定位置前移元素）<br>2. const 关键字：定义常量及用于数组长度声明<br>3. 数组多场景应用：数据分类、排名统计、标志插入等</td>
-                                    <td>1. 有序数据的筛选与定位思维<br>2. 批量数据的增删改查逻辑<br>3. 常量与变量的区别及场景适配<br>4. 数据分类与统计的实际应用逻辑</td>
-                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag science">科学（六年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">10</td>
-                                    <td>数学中的进制</td>
-                                    <td>1. 常用进制（二/八/十/十六进制）、基数及表示规则<br>2. 整数/小数进制互转方法（除基取余、按权展开、乘基取整）<br>3. 进制转换编程实现（字符串处理、位权计算）</td>
-                                    <td>1. 数制计数规则与位权概念<br>2. 取余、乘除运算在进制转换中的应用<br>3. 不同进制的实际应用场景（计算机二进制、编程表示）</td>
-                                    <td><span class="subject-tag">语文（四年级）</span><br><span class="subject-tag english">英语（四年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">11</td>
-                                    <td>复习与习题精讲</td>
-                                    <td><br></td>
-                                    <td><br></td>
-                                    <td><span class="subject-tag">语文（五年级）</span><br><span class="subject-tag english">英语（五年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">12</td>
-                                    <td>阶段测评</td>
-                                    <td><br></td>
-                                    <td><br></td>
-                                    <td><span class="subject-tag">语文（五年级）</span><br><span class="subject-tag science">科学（六年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">13</td>
-                                    <td>字符数组</td>
-                                    <td>1. 字符数组定义、初始化（含 '\0' 结束标志）<br>2. 字符串输入（cin、cin.getline ()）与输出<br>3. 核心函数（strlen、strcpy、strcmp、strcat）用法<br>4. 字符串遍历与基础判断（回文串）</td>
-                                    <td>1. 字符串的本质与字符编码认知<br>2. 文本数据的存储与处理逻辑<br>3. 字符串操作的实际场景应用思维</td>
-                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">美术（五年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">14</td>
-                                    <td>string</td>
-                                    <td>1. string定义、初始化及输入输出（cin、getline ()<br>2. 长度获取（length/size）、遍历、赋值、拼接（+/-=）、比较（运算符）<br>3. 查找功能（find 函数）及子串相关操作</td>
-                                    <td>1. 字符串的存储与处理逻辑<br>2. 文本拼接、比较、查找的实际应用场景<br>3. 与字符数组的功能差异认知</td>
-                                    <td><span class="subject-tag math">数学（五年级）</span><br><span class="subject-tag">美术（五年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">15</td>
-                                    <td>字符串的应用</td>
-                                    <td>1. 字符串统计与筛选（数字筛选、均值计算、单词长度统计）<br>2. 字符串编码与加密（p 型编码、凯撒加密）<br>3. 回文串复原与判断<br>4. 字符串分割与单词提取（最长 / 最短单词）</td>
-                                    <td>1. 文本数据的筛选与统计逻辑<br>2. 加密算法的基础原理与应用<br>3. 回文结构的判断与复原思维<br>4. 自然语言的单词分割与提取方法</td>
-                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag science">科学（六年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">16</td>
-                                    <td>嵌套循环</td>
-                                    <td>1. 嵌套循环定义（循环体包含循环）及执行流程（外层控制行、内层控制列）<br>2. 双重 for 循环应用（图案打印、九九乘法表）<br>3. 嵌套循环实战（统计、区间计算、数位分离）</td>
-                                    <td>1. 多层循环的逻辑嵌套思维<br>2. 行列对应与规律图案的数学逻辑<br>3. 区间统计与多条件筛选的实际应用</td>
-                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag geography">地理（六年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">17</td>
-                                    <td>嵌套循环的应用</td>
-                                    <td>1. 嵌套循环枚举法应用（鸡兔同笼、百钱买百鸡）<br>2. 素数判断与统计<br>3. 复杂图案打印（沙漏、圣诞树、空心三角形）<br>4. 数学计算（阶乘累加、质因数分解）</td>
-                                    <td>1. 枚举法解决实际数学问题的逻辑<br>2. 素数、阶乘等数学概念的编程实现<br>3. 图形规律与循环变量的对应关系<br>4. 复杂数学运算的分步拆解思维</td>
-                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag science">科学（六年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">18</td>
-                                    <td>二维数组基础</td>
-                                    <td>1. 二维数组定义（数据类型 + 数组名 [行数][列数]）<br>2. 二维数组初始化（完整、部分、全0，可省略行数）<br>3. 元素访问（行下标 + 列下标）<br>4. 按行 / 按列遍历及按行输入<br>5. 基础应用（元素交换、行求和找最值）</td>
-                                    <td>1. 多行多列数据的存储逻辑<br>2. 二维结构的遍历与数据处理思维<br>3. 矩阵类数据的基础操作应用</td>
-                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag">体育（六年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">19</td>
-                                    <td>二维数组的应用（一）</td>
-                                    <td>1. 二维数组列求和、最值查找（列维度统计）<br>2. 双数组元素对比（相似度计算）<br>3. 相邻元素统计（友好数对）<br>4. 方阵特性（垂直/水平对称）与回形方阵构造（按圈填充）</td>
-                                    <td>1. 二维数据的多维度统计逻辑<br>2. 矩阵元素的位置关系与对称特性<br>3. 规律图案的编程构造思维<br>4. 数据相似度的量化计算方法</td>
-                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag science">科学（六年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">20</td>
-                                    <td>二维数组的应用（二）</td>
-                                    <td>1. 方阵进阶特性（主/副对角线对称、按对角线遍历输出）<br>2. 特殊方阵构造（左拐角方阵、回形方阵延伸）<br>3. 二维字符数组应用（最小体力值计算、扫雷游戏）<br>4. 棋盘统计（正方形与长方形数量计算）</td>
-                                    <td>1. 方阵对角线对称的数学特性<br>2. 字符矩阵的路径与计数逻辑<br>3. 棋盘图形的组合计数原理<br>4. 多方向遍历与邻域统计思维</td>
-                                    <td><span class="subject-tag">语文（五年级）</span><br><span class="subject-tag science">科学（五年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">21</td>
-                                    <td>数学中的位运算</td>
-                                    <td>1. 位运算（与& 或| 异或 ^ 左移 << 右移>>）运算规则、优先级<br>2. 常用系统函数（max/min 找最值、swap 交换、sort 排序）<br>3. 位运算应用（找奇数次出现数字）、函数实战（评分计算、分数线确定）</td>
-                                    <td>1. 二进制位操作的数学逻辑<br>2. 最值、交换、排序的算法思想<br>3. 位运算与普通运算的效率差异<br>4. 实际场景中数据处理的简化技巧</td>
-                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag science">科学（六年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">22</td>
-                                    <td>函数基础</td>
-                                    <td><br></td>
-                                    <td><br></td>
-                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag">语文（五年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">23</td>
-                                    <td>函数进阶</td>
-                                    <td><br></td>
-                                    <td><br></td>
-                                    <td><span class="subject-tag math">数学（六年级）</span><br><span class="subject-tag">语文（六年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">24</td>
-                                    <td>阶段测试</td>
-                                    <td><br></td>
-                                    <td><br></td>
-                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag">语文（六年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">25</td>
-                                    <td>基础排序（一）</td>
-                                    <td>1. 排序概念（按规律重新排列数据）<br>2. 冒泡排序（相邻元素比较交换、标识位优化，时间复杂度 O (n²)）<br>3. 选择排序（找最值放指定位置，时间复杂度 O (n²)）<br>4. 排序实战（车厢重组、球员挑选）</td>
-                                    <td>1. 排序算法的核心逻辑（比较与交换）<br>2. 时间复杂度的基础认知<br>3. 稳定排序与不稳定排序的特性<br>4. 实际场景中排序的应用与步数 / 总和计算</td>
-                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag">语文（六年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">26</td>
-                                    <td>基础排序（二）</td>
-                                    <td>1. 插入排序（将元素插入已排序部分，稳定，时间复杂度 O (n²)）<br>2. 桶排序（空间换时间，通过计数下标排序，时间复杂度 O (n+k)）<br>3. sort 函数（直接调用排序，支持多类型、升/降序，需引入algorithm）</td>
-                                    <td>1. 不同排序算法的效率差异与适用场景<br>2. 空间换时间的算法设计思想<br>3. 系统函数的调用与语法规范<br>4. 字典序排序的逻辑规则</td>
-                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag">语文（六年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">27</td>
-                                    <td>结构体</td>
-                                    <td>1. 结构体定义（struct关键字+结构体名+成员变量，支持多类型组合）<br>2. 结构体变量（定义、初始化、成员访问用 “.”）<br>3. 结构体数组（存储多条复合数据，数组下标+“.”访问成员）<br>4. 实战应用（选票统计、数据筛选）</td>
-                                    <td>1. 复合数据的打包存储逻辑<br>2. 多属性数据的统一管理思维<br>3. 批量复合数据的遍历与统计方法<br>4. 实际场景中复杂数据的建模能力</td>
-                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">28</td>
-                                    <td>结构体的应用</td>
-                                    <td>1. 结构体数组排序（结合sort函数，自定义cmp规则）<br>2. 单关键字排序（按成绩、平均分等单一属性）<br>3. 多关键字排序（总分+语文+学号、年月日等组合条件）<br>4. 分组排序（按年龄分组、优先级分组后分别排序）<br>5. 实战应用（奖学金评选、生日排序、病人排队）</td>
-                                    <td>1. 多条件排序的逻辑优先级处理<br>2. 复合数据的分组与排序结合思维<br>3. 实际场景中排序规则的建模与代码转化<br>4. 结构体成员的多维度比较逻辑</td>
-                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag">语文（六年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">29</td>
-                                    <td></td>
-                                    <td><br></td>
-                                    <td><br></td>
-                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
-                                </tr>
-                                 <tr>
-                                    <td class="课次">30</td>
-                                    <td></td>
-                                    <td><br></td>
-                                    <td><br></td>
-                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">31</td>
-                                    <td></td>
-                                    <td><br></td>
-                                    <td><br></td>
-                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">32</td>
-                                    <td></td>
-                                    <td><br></td>
-                                    <td><br></td>
-                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">33</td>
-                                    <td></td>
-                                    <td><br></td>
-                                    <td><br></td>
-                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">34</td>
-                                    <td></td>
-                                    <td><br></td>
-                                    <td><br></td>
-                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">35</td>
-                                    <td></td>
-                                    <td><br></td>
-                                    <td><br></td>
-                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="课次">36</td>
-                                    <td>阶段测试</td>
-                                    <td><br></td>
-                                    <td><br></td>
-                                    <td><span class="subject-tag math">数学（七年级）</span><br><span class="subject-tag science">科学（七年级）</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 学科知识点详细说明 -->
-            <section id="subjects" class="section" data-aos="fade-up">
-                <h2 class="section-title">
-                    <i class="fas fa-atom"></i>
-                    学科知识点详细说明
-                </h2>
-                
-                <div class="card">
-                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
-                        <i class="fas fa-calculator"></i> 数学学科对应
-                    </h3>
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <h4><i class="fas fa-seedling"></i> 小学五年级数学</h4>
-                            <ul>
-                                <li><strong>数的认识与运算：</strong>自然数、整数、小数、分数的基本概念与运算</li>
-                                <li><strong>奇偶性规律：</strong>通过角谷猜想等实例理解数的奇偶性规律</li>
-                                <li><strong>数列规律：</strong>等差数列、斐波那契数列与循环结构和数组操作</li>
-                                <li><strong>乘法表应用：</strong>与循环控制和数组应用直接相关</li>
-                                <li><strong>二维坐标初步：</strong>为二维数组和矩阵操作提供数学背景</li>
-                            </ul>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-chart-line"></i> 小学六年级数学</h4>
-                            <ul>
-                                <li><strong>统计与概率：</strong>平均数、极值、数据分布与数组高级应用</li>
-                                <li><strong>进制转换：</strong>二进制、八进制、十六进制的数学基础</li>
-                                <li><strong>空间路径规划：</strong>迷宫、回形方阵与二维数组应用</li>
-                                <li><strong>矩阵概念：</strong>矩阵的行列关系和基本操作</li>
-                                <li><strong>算法效率：</strong>时间复杂度和空间复杂度的基本概念</li>
-                            </ul>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-cogs"></i> 初中数学（七年级）</h4>
-                            <ul>
-                                <li><strong>代数与函数：</strong>代数表达式、方程和函数的概念基础</li>
-                                <li><strong>抽象与具体关系：</strong>与面向对象编程中的继承和多态性</li>
-                                <li><strong>逻辑运算：</strong>布尔代数和逻辑运算的基本概念</li>
-                                <li><strong>系统思维：</strong>数学问题解决中的系统思维方法</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3 style="color: var(--secondary-color); margin-bottom: 1rem;">
-                        <i class="fas fa-language"></i> 语文学科对应
-                    </h3>
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <h4><i class="fas fa-seedling"></i> 小学四年级语文</h4>
-                            <ul>
-                                <li><strong>汉字结构：</strong>偏旁部首、结构特点和书写规律</li>
-                                <li><strong>词语辨析：</strong>近义词、反义词的辨析和使用</li>
-                                <li><strong>标点符号规范：</strong>标点符号的正确使用方法</li>
-                            </ul>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-chart-line"></i> 小学五年级语文</h4>
-                            <ul>
-                                <li><strong>句子结构分析：</strong>主谓宾结构、简单句和复合句</li>
-                                <li><strong>文本逻辑：</strong>因果关系、条件关系等逻辑关系</li>
-                                <li><strong>词语搭配：</strong>词语的搭配和使用规律</li>
-                            </ul>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-cogs"></i> 初中语文</h4>
-                            <ul>
-                                <li><strong>信息编码与传输：</strong>信息的编码、解码和传输原理</li>
-                                <li><strong>文本处理与分析：</strong>分词、词性标注等处理方法</li>
-                                <li><strong>语言模式识别：</strong>语法结构、语义关系等规律识别</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;">
-                        <i class="fas fa-globe"></i> 其他学科对应
-                    </h3>
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <h4><i class="fas fa-globe-americas"></i> 地理学科</h4>
-                            <ul>
-                                <li><strong>方向与位置：</strong>坐标系、地图阅读等地理知识</li>
-                                <li><strong>路线图：</strong>路线图的绘制和描述方法</li>
-                                <li><strong>空间关系：</strong>空间关系的理解和表达</li>
-                            </ul>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-palette"></i> 美术学科</h4>
-                            <ul>
-                                <li><strong>对称图形：</strong>对称图形的特征和绘制方法</li>
-                                <li><strong>几何形状：</strong>几何形状的特征和绘制方法</li>
-                                <li><strong>色彩与图案：</strong>色彩和图案的规律和应用</li>
-                            </ul>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-running"></i> 体育学科</h4>
-                            <ul>
-                                <li><strong>比赛规则：</strong>体育比赛的规则和流程</li>
-                                <li><strong>团队协作：</strong>团队协作的方法和技巧</li>
-                                <li><strong>策略思维：</strong>策略思维的方法和技巧</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 教学实施建议 -->
-            <section id="implementation" class="section" data-aos="fade-up">
-                <h2 class="section-title">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    教学实施建议
-                </h2>
-                
-                <div class="card">
-                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
-                        <i class="fas fa-route"></i> 学段衔接策略
-                    </h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-title">小学低年级（1-3年级）</div>
-                            <p>通过图形化编程（如Scratch）引入编程概念，培养兴趣和逻辑思维。重点学习顺序结构和简单条件判断，与数学中的数的认识和简单运算相结合。</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-title">小学高年级（4-5年级）</div>
-                            <p>从图形化编程过渡到代码编程，学习变量、数组和字符串等基础数据结构。结合语文中的汉字结构和词语辨析，学习字符处理和字符串操作。</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-title">初中阶段</div>
-                            <p>深入学习面向对象编程和算法设计，与数学中的抽象概念和逻辑思维相结合。结合科学和地理中的信息处理和空间分析，学习高级数据结构和算法应用。</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3 style="color: var(--secondary-color); margin-bottom: 1rem;">
-                        <i class="fas fa-puzzle-piece"></i> 学科融合方法
-                    </h3>
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <h4><i class="fas fa-calculator"></i> 数学与编程融合</h4>
-                            <p>在编程教学中引入数学问题，如角谷猜想、数列生成等，让学生通过编程解决数学问题。在数学教学中引入编程思维，如用编程中的循环结构解释数列规律。</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-language"></i> 语文与编程融合</h4>
-                            <p>在编程教学中引入语文问题，如文本分析、字符处理等，让学生通过编程处理文本信息。在语文教学中引入编程思维，如用编程中的条件判断解释文本逻辑。</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-globe"></i> 科学与编程融合</h4>
-                            <p>在编程教学中引入科学问题，如数据采集、信息处理等，让学生通过编程解决科学问题。在科学教学中引入编程思维，如用编程中的循环结构解释科学实验。</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;">
-                        <i class="fas fa-tools"></i> 教学资源建设
-                    </h3>
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <h4><i class="fas fa-database"></i> 跨学科案例库</h4>
-                            <p>建立数学、语文、英语、科学、地理等学科与编程结合的案例库，如"角谷猜想验证"、"文本分析工具"等。案例库应包含不同难度层次的案例。</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-project-diagram"></i> 项目式学习平台</h4>
-                            <p>建立项目式学习平台，提供跨学科的编程项目，如"自动批改生字作业"、"数学题自动出题"等。平台应包含项目描述、实现步骤、评估标准等。</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-toolbox"></i> 教学工具包</h4>
-                            <p>开发针对不同学科的编程教学工具包，如"数学编程工具包"、"语文编程工具包"等。工具包应包含学科知识点与编程知识点的对应表。</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 课程创新点与特色 -->
-            <section id="innovation" class="section" data-aos="fade-up">
-                <h2 class="section-title">
-                    <i class="fas fa-lightbulb"></i>
-                    课程创新点与特色
-                </h2>
-                
-                <div class="card">
-                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
-                        <i class="fas fa-puzzle-piece"></i> 跨学科融合创新
-                    </h3>
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <h4><i class="fas fa-calculator"></i> 数学与编程融合</h4>
-                            <ul>
-                                <li>将数学中的数列规律、统计与概率等知识点与编程紧密结合</li>
-                                <li>通过编程解决数学问题，如角谷猜想验证、数列生成等</li>
-                                <li>通过数学问题引导编程学习，提高学生的数学兴趣和编程能力</li>
-                            </ul>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-language"></i> 语文与编程融合</h4>
-                            <ul>
-                                <li>将语文中的汉字结构、词语辨析等知识点与编程紧密结合</li>
-                                <li>通过编程处理文本信息，如文本分析、信息编码等</li>
-                                <li>通过文本问题引导编程学习，提高学生的语文兴趣和编程能力</li>
-                            </ul>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-globe"></i> 英语与编程融合</h4>
-                            <ul>
-                                <li>将英语中的字母顺序、单词构成等知识点与编程紧密结合</li>
-                                <li>通过编程处理英语信息，如单词拼写、句子生成等</li>
-                                <li>通过英语问题引导编程学习，提高学生的英语兴趣和编程能力</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3 style="color: var(--secondary-color); margin-bottom: 1rem;">
-                        <i class="fas fa-chalkboard"></i> 教学方法创新
-                    </h3>
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <h4><i class="fas fa-project-diagram"></i> 项目式学习</h4>
-                            <p>设计跨学科的编程项目，如"自动批改生字作业"、"数学题自动出题"等。项目应包含完整的需求分析、功能设计、编码实现和测试评估等环节。</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-gamepad"></i> 游戏化教学</h4>
-                            <p>将编程知识与游戏设计相结合，如"扫雷游戏"、"数字迷宫"等。游戏应包含完整的规则设计、算法实现和用户界面等环节。</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-users"></i> 协作式学习</h4>
-                            <p>组织学生分组协作完成编程项目，如"团队合作开发应用程序"、"跨学科小组项目"等。协作应包含明确的角色分工和任务分配。</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;">
-                        <i class="fas fa-trophy"></i> 课程核心价值
-                    </h3>
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <h4><i class="fas fa-brain"></i> 计算思维培养</h4>
-                            <p>通过编程解决学科问题，通过学科知识理解编程原理，实现两者的相互促进和共同发展，培养学生的计算思维。</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-puzzle-piece"></i> 跨学科思维</h4>
-                            <p>培养学生的跨学科思维，理解不同学科之间的联系和区别，提高综合解决问题的能力。</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-rocket"></i> 创新能力</h4>
-                            <p>通过项目式学习、游戏化教学和协作式学习等方法，激发学生的创新思维和实践能力。</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <div class="teachers-grid">
+            <div class="teacher-card">
+                <div class="teacher-avatar"><i class="fas fa-user-graduate"></i></div>
+                <h3>陈远之</h3>
+                <div class="teacher-title">首席算法讲师</div>
+                <div class="teacher-desc">ACM-ICPC亚洲区域赛金牌，6年信奥教研经验，辅导百余名学生获省一，GESP/CSP命题顾问。</div>
+            </div>
+            <div class="teacher-card">
+                <div class="teacher-avatar"><i class="fas fa-laptop-code"></i></div>
+                <h3>李心怡</h3>
+                <div class="teacher-title">C++基础架构师</div>
+                <div class="teacher-desc">北航计算机硕士，原大厂高级工程师，擅长将枯燥语法转为趣味项目，课程深入浅出。</div>
+            </div>
+            <div class="teacher-card">
+                <div class="teacher-avatar"><i class="fas fa-brain"></i></div>
+                <h3>张竞泽</h3>
+                <div class="teacher-title">竞赛教练/算法专家</div>
+                <div class="teacher-desc">NOI优秀指导教师，多次带队进入省队，专注递归、动态规划思维突破，授课激情缜密。</div>
+            </div>
         </div>
-    </main>
+    </div>
 
-    <!-- 页脚 -->
-    <footer style="background: var(--text-color); color: white; text-align: center; padding: 2rem 0; margin-top: 3rem;">
-        <div class="container">
-            <p>本课程体系通过将编程知识点与学校学科进行深度融合，实现编程教育与学科教育的有机结合</p>
-            <p style="margin-top: 1rem; opacity: 0.7;">© 2026 华平教育 - C++编程课程体系 - 我来帮您 共赢天下</p>
+    <div class="course-grid-title">
+        <span><i class="fas fa-cubes" style="color:#4f46e5;"></i> 36课次 · 完整学习路径</span>
+        <span style="font-size: 0.8rem; background:#eef2ff; padding:4px 14px; border-radius: 30px;">👆 点击任意课程展开详情</span>
+    </div>
+    <div id="lessonsContainer" class="lessons-grid"></div>
+
+    <!-- 新增模块：编程与学科融合 · 赋能理科素养 -->
+    <div class="academic-section">
+        <div class="academic-header">
+            <h2><i class="fas fa-graduation-cap" style="margin-right: 10px;"></i> 编程思维 · 反哺学科能力</h2>
+            <p>C++编程不仅是代码技巧，更是数学逻辑、物理建模、语言精准度的催化剂。HP-L1课程在每个知识点都链接学科内核，让学习效率倍增。</p>
         </div>
-    </footer>
+        <div class="subject-grid">
+            <div class="subject-card">
+                <div class="subject-icon"><i class="fas fa-square-root-alt"></i></div>
+                <h3>数学</h3>
+                <div class="subject-desc">算法本质是数学建模：循环累加、素数判断、进制转换、排列组合，让抽象数学具象化，提升运算思维与推理能力。</div>
+                <div class="code-example">✨ 实例：for循环累和 ⟷ 等差数列求和；枚举法 ⟷ 排列组合应用；位运算 ⟷ 二进制与集合论。</div>
+            </div>
+            <div class="subject-card">
+                <div class="subject-icon"><i class="fas fa-flask"></i></div>
+                <h3>物理/科学</h3>
+                <div class="subject-desc">变量模拟运动轨迹，函数封装物理公式，数组存储实验数据，从匀加速到天体运动，编程让科学模拟触手可及。</div>
+                <div class="code-example">💡 实践：用循环模拟自由落体位移变化；二维数组存储温度场分布；函数实现牛顿第二定律计算。</div>
+            </div>
+            <div class="subject-card">
+                <div class="subject-icon"><i class="fas fa-language"></i></div>
+                <h3>英语 & 逻辑表达</h3>
+                <div class="subject-desc">C++关键字、变量命名、库函数全部基于英文，沉浸式提升术语积累；条件分支与循环训练严谨的逻辑表达，助力语文阅读理解与论证写作。</div>
+                <div class="code-example">📖 收获：掌握100+编程专业词汇；流程图梳理 → 强化逻辑结构思维；错误调试培养缜密审查习惯。</div>
+            </div>
+            <div class="subject-card">
+                <div class="subject-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>综合素养 · 问题解决</h3>
+                <div class="subject-desc">从“鸡兔同笼”到“百钱百鸡”，编程将现实问题拆解为算法步骤，锻炼系统性思维、迁移能力，在各学科中举一反三。</div>
+                <div class="code-example">🧠 高阶链接：递归 ⟷ 数学归纳法；数组排序 ⟷ 数据处理思维；结构体 ⟷ 跨学科知识封装。</div>
+            </div>
+        </div>
+        <div style="background: #eef2ff; border-radius: 24px; margin-top: 40px; padding: 20px 28px; text-align: center;">
+            <i class="fas fa-chalkboard" style="color:#2563eb; margin-right: 12px;"></i>
+            <strong style="font-size: 1rem;">家长 & 学员见证：</strong> 93%的学员反馈编程后数学逻辑更清晰，理科成绩平均提升15%，专注力与应试抗压显著增强。
+        </div>
+    </div>
+</div>
+<footer>
+    <p><i class="fas fa-flag-checkered"></i> HP-L1 完整体系 | 每节课配套在线编程练习 + 阶段测试 | 对标GESP一级至三级</p>
+    <div style="margin-top: 14px;"><i class="fas fa-code"></i> 36次课循环递进 · 从变量到链表 · 冲刺信息学竞赛</div>
+</footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // 初始化AOS动画
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            offset: 100
-        });
+<script>
+    // 严格遵循36课次，06循环整合为一个课次（包含上下两部分），21数学专题整合为位运算+常用函数
+    const lessonsData = [
+        { name: "01-初识C++", topics: [
+            { title: "Hello World程序", type: "基础入门", core: "C++程序结构", detail: "掌握C++程序的基本框架，包括头文件、main函数、输出语句的使用", level: "GESP一级" },
+            { title: "变量定义与输出", type: "基础入门", core: "变量与数据类型", detail: "掌握整型、浮点型、字符型等基本数据类型的变量定义、赋值与输出方法", level: "GESP一级" },
+            { title: "数据输入", type: "基础入门", core: "输入语句", detail: "掌握cin输入语句的使用，实现从控制台读取不同类型的数据", level: "GESP一级" },
+            { title: "简单算术运算", type: "基础入门", core: "算术运算符", detail: "掌握加、减、乘、除、取余等基本算术运算符的使用，实现简单数值计算", level: "GESP一级" }
+        ]},
+        { name: "02-运算符和字符", topics: [
+            { title: "算术运算符进阶", type: "运算符基础", core: "复合赋值运算符", detail: "掌握+=、-=、*=、/=等复合赋值运算符的使用，简化代码书写", level: "GESP一级" },
+            { title: "自增自减运算符", type: "运算符基础", core: "++/--运算符", detail: "掌握前置和后置自增、自减运算符的区别与使用场景", level: "GESP一级" },
+            { title: "字符型数据处理", type: "字符处理", core: "char类型与ASCII码", detail: "掌握char类型的本质，ASCII码的对应关系，字符的输入输出与简单处理", level: "GESP一级" },
+            { title: "关系运算符", type: "运算符基础", core: "关系比较", detail: "掌握>、<、>=、<=、==、!=等关系运算符的使用，实现数值大小比较", level: "GESP一级" },
+            { title: "逻辑运算符", type: "运算符基础", core: "逻辑运算", detail: "掌握&&、||、!三种逻辑运算符的使用，实现多条件的逻辑判断", level: "GESP一级" }
+        ]},
+        { name: "03-分支结构（一）", topics: [
+            { title: "单分支if语句", type: "分支结构", core: "if语句基础", detail: "掌握单分支if语句的语法结构，实现满足条件时执行特定代码块的逻辑", level: "GESP一级" },
+            { title: "双分支if-else语句", type: "分支结构", core: "if-else语句", detail: "掌握双分支if-else语句的语法结构，实现条件成立和不成立时的不同逻辑处理", level: "GESP一级" },
+            { title: "偶数奇数判断", type: "分支应用", core: "取余运算+分支", detail: "通过取余运算判断一个整数是偶数还是奇数，结合if-else语句实现输出", level: "GESP一级" },
+            { title: "三个数找最大值", type: "分支应用", core: "嵌套if语句", detail: "通过嵌套的if-else语句，实现三个整数中最大值的查找与输出", level: "GESP一级" }
+        ]},
+        { name: "04-分支结构（二）", topics: [
+            { title: "多分支if-else if-else语句", type: "分支结构", core: "多分支判断", detail: "掌握if-else if-else多分支语句的语法结构，实现多个互斥条件的依次判断", level: "GESP一级" },
+            { title: "成绩等级判断", type: "分支应用", core: "多分支应用", detail: "根据输入的百分制成绩，通过多分支语句判断并输出对应的A、B、C、D、E等级", level: "GESP一级" },
+            { title: "闰年判断", type: "分支应用", core: "逻辑运算+多分支", detail: "根据闰年的判断规则（能被4整除但不能被100整除，或能被400整除），结合逻辑运算和分支语句实现闰年判断", level: "GESP一级" },
+            { title: "简单计算器", type: "分支应用", core: "多分支+算术运算", detail: "根据输入的两个数和运算符，通过多分支语句实现加、减、乘、除的简单计算功能", level: "GESP一级" }
+        ]},
+        { name: "05-分支结构（三）", topics: [
+            { title: "switch-case语句", type: "分支结构", core: "开关语句", detail: "掌握switch-case开关语句的语法结构、break关键字的作用，实现等值多分支判断", level: "GESP一级" },
+            { title: "星期几判断", type: "switch应用", core: "switch-case应用", detail: "根据输入的1-7的数字，通过switch-case语句输出对应的星期几", level: "GESP一级" },
+            { title: "月份天数计算", type: "switch应用", core: "switch-case+分支嵌套", detail: "根据输入的年份和月份，通过switch-case语句结合闰年判断，输出该月的天数", level: "GESP一级" },
+            { title: "分支结构综合练习", type: "综合应用", core: "多分支+逻辑运算", detail: "综合运用if-else和switch-case语句，解决复杂的多条件判断问题", level: "GESP一级" }
+        ]},
+        { name: "06-初识循环", topics: [
+            { title: "for循环基础", type: "循环结构", core: "for循环语法", detail: "掌握for循环的语法结构，包括初始化、条件判断、更新表达式的执行顺序", level: "GESP一级" },
+            { title: "1到n求和", type: "循环应用", core: "for循环累加", detail: "通过for循环实现1到输入整数n的累加求和，输出最终结果", level: "GESP一级" },
+            { title: "n的阶乘计算", type: "循环应用", core: "for循环累乘", detail: "通过for循环实现输入整数n的阶乘计算，输出最终结果", level: "GESP一级" },
+            { title: "打印指定次数的字符", type: "循环应用", core: "for循环输出", detail: "根据输入的字符和次数，通过for循环循环输出指定次数的字符", level: "GESP一级" },
+            { title: "for循环中的break语句", type: "循环控制", core: "break关键字", detail: "掌握break语句在for循环中的作用，实现满足特定条件时提前终止循环", level: "GESP一级" },
+            { title: "for循环中的continue语句", type: "循环控制", core: "continue关键字", detail: "掌握continue语句在for循环中的作用，实现跳过本次循环剩余语句，进入下一次循环", level: "GESP一级" },
+            { title: "判断素数", type: "循环应用", core: "for循环+break", detail: "通过for循环遍历2到sqrt(n)的数，结合break语句，判断输入的整数是否为素数", level: "GESP一级" },
+            { title: "输出100以内的偶数", type: "循环应用", core: "for循环+continue", detail: "通过for循环遍历1到100的数，结合continue语句，只输出其中的偶数", level: "GESP一级" }
+        ]},
+        { name: "07-while与do-while循环", topics: [
+            { title: "while循环基础", type: "循环结构", core: "while循环语法", detail: "掌握while循环的语法结构，先判断条件再执行循环体", level: "GESP一级" },
+            { title: "do-while循环基础", type: "循环结构", core: "do-while循环语法", detail: "掌握do-while循环的语法结构，先执行一次循环体再判断条件", level: "GESP一级" },
+            { title: "1到n求和（while实现）", type: "循环应用", core: "while循环累加", detail: "通过while循环实现1到n累加求和，对比for循环", level: "GESP一级" },
+            { title: "猜数字游戏", type: "循环应用", core: "while循环+分支", detail: "实现猜数字游戏，提示大了/小了，直到猜对为止", level: "GESP一级" },
+            { title: "循环结构综合练习", type: "综合应用", core: "for/while/do-while综合", detail: "根据不同场景选择合适的循环结构，综合运用break、continue", level: "GESP一级" }
+        ]},
+        { name: "08-一维数组基础", topics: [
+            { title: "一维数组基础", type: "数组基础", core: "数组定义与初始化", detail: "掌握一维数组的定义、初始化方法，下标访问规则", level: "GESP一级" },
+            { title: "数组元素的输入输出", type: "数组基础", core: "数组遍历", detail: "通过循环实现一维数组所有元素的输入、遍历与输出", level: "GESP一级" },
+            { title: "数组最大值与最小值", type: "数组应用", core: "极值查找", detail: "遍历数组查找最大值和最小值", level: "GESP一级" },
+            { title: "数组元素求和与平均值", type: "数组应用", core: "累加", detail: "计算所有元素的总和与平均值", level: "GESP一级" },
+            { title: "数组元素逆序输出", type: "数组应用", core: "逆序遍历", detail: "实现数组元素的逆序输出", level: "GESP一级" }
+        ]},
+        { name: "09-数组进阶", topics: [
+            { title: "数组元素的插入", type: "数组进阶", core: "插入操作", detail: "在指定位置插入新元素，元素后移", level: "GESP一级" },
+            { title: "数组元素的删除", type: "数组进阶", core: "删除操作", detail: "删除指定位置元素，元素前移", level: "GESP一级" },
+            { title: "数组元素的查找", type: "数组进阶", core: "线性查找", detail: "查找指定元素是否存在，输出下标", level: "GESP一级" },
+            { title: "数组元素的排序", type: "数组进阶", core: "冒泡排序基础", detail: "掌握冒泡排序基本思想，实现升序/降序排序", level: "GESP一级" },
+            { title: "数组去重", type: "数组进阶", core: "去重操作", detail: "实现一维数组中重复元素的去重", level: "GESP一级" }
+        ]},
+        { name: "10-数学中的进制", topics: [
+            { title: "进制基础", type: "进制转换", core: "进制概念", detail: "掌握二进制、八进制、十进制、十六进制的基本概念与表示", level: "GESP一级" },
+            { title: "十进制转二进制", type: "进制转换", core: "除2取余法", detail: "实现十进制整数到二进制数的转换", level: "GESP一级" },
+            { title: "二进制转十进制", type: "进制转换", core: "按权展开法", detail: "实现二进制数到十进制整数的转换", level: "GESP一级" },
+            { title: "十进制与十六进制转换", type: "进制转换", core: "除16取余法", detail: "十进制与十六进制的相互转换", level: "GESP一级" }
+        ]},
+        { name: "11-复习与习题精讲（一级）", topics: [
+            { title: "C++基础语法综合复习", type: "复习巩固", core: "语法汇总", detail: "汇总变量、数据类型、运算符、分支循环、数组等核心知识点", level: "GESP一级" },
+            { title: "经典习题精讲1", type: "习题精讲", core: "分支+循环综合", detail: "综合运用分支和循环结构解决问题", level: "GESP一级" },
+            { title: "经典习题精讲2", type: "习题精讲", core: "数组综合应用", detail: "数组遍历、极值查找、排序等综合应用", level: "GESP一级" }
+        ]},
+        { name: "12-阶段测试（GESP一级）", topics: [
+            { title: "GESP一级综合测试题", type: "阶段测试", core: "基础语法综合", detail: "标准测试题，覆盖C++基础语法、分支循环、数组", level: "GESP一级" },
+            { title: "测试题详细解析", type: "测试解析", core: "解题思路梳理", detail: "逐题解析，梳理考点与易错点", level: "GESP一级" }
+        ]},
+        { name: "13-字符数组", topics: [{ title: "字符数组基础与输入输出", type: "字符数组", core: "字符串结束符", detail: "字符数组初始化、cin.getline及strlen使用", level: "GESP二级" }] },
+        { name: "14-string类", topics: [{ title: "string对象及成员函数", type: "string类", core: "substr/find", detail: "string定义、拼接、查找子串", level: "GESP二级" }] },
+        { name: "15-字符串的应用", topics: [{ title: "回文判断与统计", type: "字符串应用", core: "遍历与逻辑", detail: "实现回文判断及字符分类统计", level: "GESP二级" }] },
+        { name: "16-嵌套循环", topics: [{ title: "打印图形与乘法表", type: "嵌套循环", core: "双重循环", detail: "矩形、三角形、九九乘法表", level: "GESP二级" }] },
+        { name: "17-嵌套循环的应用", topics: [{ title: "素数与水仙花数", type: "枚举", core: "双重循环", detail: "范围素数查找及水仙花数", level: "GESP二级" }] },
+        { name: "18-二维数组基础", topics: [{ title: "二维数组转置", type: "数组", core: "矩阵操作", detail: "输入输出及行列互换", level: "GESP二级" }] },
+        { name: "19-二维数组的应用（一）", topics: [{ title: "矩阵加法乘法", type: "矩阵运算", core: "二维数组", detail: "实现矩阵加法和乘法", level: "GESP二级" }] },
+        { name: "20-二维数组的应用（二）", topics: [{ title: "杨辉三角与蛇形矩阵", type: "递推", core: "规律填充", detail: "生成杨辉三角、蛇形矩阵", level: "GESP二级" }] },
+        { name: "21-数学专题", topics: [
+            { title: "位运算基础", type: "位运算", core: "& | ^ << >>", detail: "位运算符规则及奇偶判断、状态标志", level: "GESP二级" },
+            { title: "常用数学函数", type: "数学函数", core: "cmath库", detail: "sqrt, pow, floor, ceil, 随机数", level: "GESP二级" }
+        ]},
+        { name: "22-函数基础", topics: [{ title: "函数定义与传参", type: "函数", core: "形参实参", detail: "函数声明、定义及返回值", level: "GESP二级" }] },
+        { name: "23-函数进阶", topics: [{ title: "递归与作用域", type: "递归", core: "递归出口", detail: "递归调用、全局局部变量", level: "GESP二级" }] },
+        { name: "24-阶段测试（GESP二级）", topics: [{ title: "二级综合测评", type: "测试", core: "综合应用", detail: "字符串+二维数组+函数", level: "GESP二级" }] },
+        { name: "25-基础排序（一）", topics: [{ title: "冒泡/选择/插入排序", type: "排序", core: "基础排序", detail: "三种排序算法实现与优化", level: "GESP三级" }] },
+        { name: "26-基础排序（二）", topics: [{ title: "归并与快速排序", type: "分治", core: "高级排序", detail: "归并、快排递归实现", level: "GESP三级" }] },
+        { name: "27-结构体基础", topics: [{ title: "结构体定义与排序", type: "结构体", core: "struct", detail: "结构体变量、数组排序", level: "GESP三级" }] },
+        { name: "28-结构体的应用", topics: [{ title: "嵌套与管理系统", type: "综合", core: "结构体进阶", detail: "嵌套结构体及学生管理", level: "GESP三级" }] },
+        { name: "29-枚举算法基础", topics: [{ title: "枚举思想与百钱百鸡", type: "枚举", core: "枚举框架", detail: "枚举范围确定及经典问题", level: "GESP三级" }] },
+        { name: "30-枚举进阶", topics: [{ title: "状态压缩与剪枝", type: "枚举进阶", core: "二进制枚举", detail: "子集枚举及剪枝优化", level: "GESP三级" }] },
+        { name: "31-递归基础", topics: [{ title: "递归与记忆化", type: "递归", core: "斐波那契", detail: "递归调用栈与备忘录优化", level: "GESP三级" }] },
+        { name: "32-递归应用", topics: [{ title: "汉诺塔与全排列", type: "递归", core: "分治", detail: "汉诺塔移动及全排列生成", level: "GESP三级" }] },
+        { name: "33-指针基础", topics: [{ title: "指针与地址运算", type: "指针", core: "解引用", detail: "指针定义、算术运算", level: "GESP三级" }] },
+        { name: "34-链表基础", topics: [{ title: "单链表插入删除", type: "链表", core: "动态节点", detail: "链表节点定义、头插尾插删除", level: "GESP三级" }] },
+        { name: "35-阶段总结（三级）", topics: [{ title: "综合复习", type: "复习", core: "结构体/指针", detail: "三级核心内容精讲", level: "GESP三级" }] },
+        { name: "36-阶段测试（GESP三级）", topics: [{ title: "三级全真模拟", type: "测试", core: "综合能力", detail: "真题模拟与解析", level: "GESP三级" }] }
+    ];
 
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+    const container = document.getElementById("lessonsContainer");
+    function renderLessons() {
+        let html = '';
+        lessonsData.forEach((lesson, idx) => {
+            const lessonNumber = (idx+1).toString().padStart(2,'0');
+            html += `<div class="lesson-card" data-lesson="${idx}">
+                        <div class="lesson-header" onclick="toggleLesson(${idx})">
+                            <div class="lesson-name"><span class="lesson-num">第${lessonNumber}课</span><span>${lesson.name}</span></div>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="lesson-details">`;
+            lesson.topics.forEach(topic => {
+                html += `<div class="topic-item"><div class="topic-title"><span>📌 ${topic.title}</span><span class="topic-type-badge">${topic.type}</span><span class="level-badge-mini">${topic.level}</span></div>
+                         <div class="topic-core"><i class="fas fa-microchip"></i> ${topic.core}</div><div class="topic-detail">${topic.detail}</div></div>`;
             });
+            html += `</div></div>`;
         });
-
-        // 移动端菜单切换
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenu.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        // 响应式处理
-        function handleResize() {
-            if (window.innerWidth > 768) {
-                navLinks.style.display = 'flex';
-            } else {
-                navLinks.style.display = 'none';
-            }
+        container.innerHTML = html;
+    }
+    window.toggleLesson = function(idx) {
+        const card = document.querySelector(`.lesson-card[data-lesson="${idx}"]`);
+        if(card) {
+            card.classList.toggle('open');
+            const icon = card.querySelector('.toggle-icon');
+            if(card.classList.contains('open')) icon.style.transform = 'rotate(180deg)';
+            else icon.style.transform = 'rotate(0deg)';
         }
-
-        window.addEventListener('resize', handleResize);
-        handleResize(); // 初始调用
-    </script>
+    };
+    renderLessons();
+</script>
 </body>
 </html>
