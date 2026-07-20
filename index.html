@@ -354,14 +354,11 @@
         .teacher-avatar {
             width: 110px;
             height: 110px;
-            background: linear-gradient(145deg, #60a5fa, #a78bfa);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: block;
             margin: 0 auto 22px;
-            font-size: 3rem;
-            color: white;
+            object-fit: cover;
+            border: 3px solid #e2e8f0;
             box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
             transition: transform 0.3s ease;
         }
@@ -426,6 +423,194 @@
             border: 1px solid rgba(59, 130, 246, 0.1);
             box-shadow: 0 4px 16px rgba(0,0,0,0.04);
         }
+        
+        .lesson-card.stage-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.35);
+        }
+        .stage-card .lesson-header {
+            background: rgba(255,255,255,0.1);
+        }
+        .stage-card .lesson-name span {
+            color: white !important;
+            font-weight: 700;
+        }
+        .stage-card .lesson-num {
+            background: rgba(255,255,255,0.2) !important;
+            color: white !important;
+        }
+        .stage-card .topic-item {
+            background: rgba(255,255,255,0.1);
+            border-left: 3px solid rgba(255,255,255,0.5);
+        }
+        .stage-card .topic-title span {
+            color: rgba(255,255,255,0.9) !important;
+        }
+        .stage-card .topic-type-badge {
+            background: rgba(255,255,255,0.2) !important;
+            color: white !important;
+        }
+        .stage-card .topic-core, .stage-card .topic-detail, 
+        .stage-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .stage-tab {
+            padding: 10px 32px;
+            border-radius: 30px;
+            background: white;
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .stage-tab.active {
+            background: linear-gradient(135deg, #2563eb, #8b5cf6);
+            border-color: #2563eb;
+            color: white;
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+        }
+        .stage-tab:hover {
+            border-color: #2563eb;
+            transform: translateY(-2px);
+        }
+        .stage-section {
+            display: none;
+        }
+        .stage-section.active {
+            display: grid;
+        }
+
+        
+        .stage-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .stage-tab {
+            padding: 10px 32px;
+            border-radius: 30px;
+            background: white;
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .stage-tab.active {
+            background: linear-gradient(135deg, #2563eb, #8b5cf6);
+            border-color: #2563eb;
+            color: white;
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+        }
+        .stage-tab:hover {
+            border-color: #2563eb;
+            transform: translateY(-2px);
+        }
+        .stage-section {
+            display: none;
+        }
+        .stage-section.active {
+            display: grid;
+        }
+
+        .stage-card .topic-subject {
+            color: rgba(255,255,255,0.85) !important;
+        }
+        
+        .stage-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .stage-tab {
+            padding: 10px 32px;
+            border-radius: 30px;
+            background: white;
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .stage-tab.active {
+            background: linear-gradient(135deg, #2563eb, #8b5cf6);
+            border-color: #2563eb;
+            color: white;
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+        }
+        .stage-tab:hover {
+            border-color: #2563eb;
+            transform: translateY(-2px);
+        }
+        .stage-section {
+            display: none;
+        }
+        .stage-section.active {
+            display: grid;
+        }
+
+        
+        .stage-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .stage-tab {
+            padding: 10px 32px;
+            border-radius: 30px;
+            background: white;
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .stage-tab.active {
+            background: linear-gradient(135deg, #2563eb, #8b5cf6);
+            border-color: #2563eb;
+            color: white;
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+        }
+        .stage-tab:hover {
+            border-color: #2563eb;
+            transform: translateY(-2px);
+        }
+        .stage-section {
+            display: none;
+        }
+        .stage-section.active {
+            display: grid;
+        }
+
+        .stage-card .topic-subject {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.3);
+        }
+
         .lesson-card:hover {
             box-shadow: 0 12px 32px rgba(59, 130, 246, 0.1);
             transform: translateY(-2px);
@@ -479,7 +664,7 @@
             transition: max-height 0.35s ease-out, padding 0.2s;
             background: white;
         }
-        .lesson-card.open .lesson-details {
+        .lesson-card.expanded .lesson-details {
             max-height: 900px;
             padding: 22px 24px 28px;
             border-top: 1px solid rgba(59, 130, 246, 0.08);
@@ -720,46 +905,28 @@
         <div class="teachers-header">
             <h2><i class="fas fa-chalkboard-user" style="color:#4f46e5;"></i> 金牌教研团队</h2>
             <div class="scroll-hint"><i class="fas fa-arrows-left-right"></i> 左右滑动查看更多</div>
-            <p style="color:#475569; margin-top: 8px;">ACM/ICPC区域赛金牌得主 · NOI金牌教练 · 多年信奥授课经验</p>
+            <p style="color:#475569; margin-top: 8px;">ACM/ICPC区域赛金牌得主 · NOI认证教练 · 多年信奥授课经验</p>
         </div>
         <div class="teachers-wrapper">
             <div class="teachers-carousel-viewport">
                 <div class="teachers-carousel-track" id="teachersTrack">
                 <div class="teacher-card">
-                    <div class="teacher-avatar" style="background: linear-gradient(145deg, #60a5fa, #a78bfa);"><i class="fas fa-user-graduate"></i></div>
-                    <h3>陈远之</h3>
-                    <div class="teacher-title">首席算法讲师</div>
-                    <div class="teacher-desc">ACM-ICPC亚洲区域赛金牌，6年信奥教研经验，辅导百余名学生获省一，GESP/CSP命题顾问。</div>
+                    <img class="teacher-avatar" src="https://hp-logo-1387549643.cos.ap-guangzhou.myqcloud.com/%E7%BD%97%E4%BC%9F%E5%BA%B7.png" alt="罗伟康">
+                    <h3>罗伟康</h3>
+                    <div class="teacher-title">金牌教练</div>
+                    <div class="teacher-desc">NOI认证教练，专注青少年编程教育，指导多名学生获得CSP-J/S认证，教学风格严谨细致。</div>
                 </div>
                 <div class="teacher-card">
-                    <div class="teacher-avatar" style="background: linear-gradient(145deg, #34d399, #06b6d4);"><i class="fas fa-laptop-code"></i></div>
-                    <h3>李心怡</h3>
-                    <div class="teacher-title">C++基础架构师</div>
-                    <div class="teacher-desc">北航计算机硕士，原大厂高级工程师，擅长将枯燥语法转为趣味项目，课程深入浅出。</div>
+                    <img class="teacher-avatar" src="https://hp-logo-1387549643.cos.ap-guangzhou.myqcloud.com/%E5%BE%90%E5%A5%95%E6%A0%87.png" alt="徐奕标">
+                    <h3>徐奕标</h3>
+                    <div class="teacher-title">金牌教练</div>
+                    <div class="teacher-desc">ACM-ICPC亚洲区域赛金牌得主，多年信奥竞赛教学经验，擅长培养学生的算法思维与编程能力。</div>
                 </div>
                 <div class="teacher-card">
-                    <div class="teacher-avatar" style="background: linear-gradient(145deg, #f59e0b, #ef4444);"><i class="fas fa-brain"></i></div>
-                    <h3>张竞泽</h3>
-                    <div class="teacher-title">竞赛教练/算法专家</div>
-                    <div class="teacher-desc">NOI优秀指导教师，多次带队进入省队，专注递归、动态规划思维突破，授课激情缜密。</div>
-                </div>
-                <div class="teacher-card">
-                    <div class="teacher-avatar" style="background: linear-gradient(145deg, #f472b6, #a78bfa);"><i class="fas fa-star"></i></div>
-                    <h3>小林老师</h3>
-                    <div class="teacher-title">青少年编程启蒙专家</div>
-                    <div class="teacher-desc">教育学硕士，擅长以游戏化方式引导低龄学员入门编程，激发学习兴趣，深受学生喜爱。</div>
-                </div>
-                <div class="teacher-card">
-                    <div class="teacher-avatar" style="background: linear-gradient(145deg, #38bdf8, #818cf8);"><i class="fas fa-smile"></i></div>
-                    <h3>乐乐老师</h3>
-                    <div class="teacher-title">趣味编程设计师</div>
-                    <div class="teacher-desc">前硅谷科技公司前端工程师，擅长将编程与动画、游戏融合，让每节课都充满惊喜与创造力。</div>
-                </div>
-                <div class="teacher-card">
-                    <div class="teacher-avatar" style="background: linear-gradient(145deg, #10b981, #06b6d4);"><i class="fas fa-code"></i></div>
-                    <h3>罗老师</h3>
-                    <div class="teacher-title">数据结构与算法导师</div>
-                    <div class="teacher-desc">中科院计算机博士，深耕算法教育8年，擅长用生活案例破解复杂算法，化繁为简。</div>
+                    <img class="teacher-avatar" src="https://hp-logo-1387549643.cos.ap-guangzhou.myqcloud.com/%E6%9E%97%E8%A3%95%E9%B9%8F.png" alt="林裕鹏">
+                    <h3>林裕鹏</h3>
+                    <div class="teacher-title">金牌教练</div>
+                    <div class="teacher-desc">资深算法讲师，擅长数据结构与动态规划教学，帮助学生在各类编程竞赛中取得优异成绩。</div>
                 </div>
                 </div>
             </div>
@@ -770,10 +937,41 @@
     </div>
 
     <div class="course-grid-title">
-        <span><i class="fas fa-cubes" style="color:#4f46e5;"></i> 36课次 · 完整学习路径</span>
+        <span><i class="fas fa-cubes" style="color:#4f46e5;"></i> 72课次 · 完整学习路径</span>
         <span class="course-hint-badge">👆 点击任意课程展开详情</span>
     </div>
-    <div id="lessonsContainer" class="lessons-grid"></div>
+
+    <div class="stage-tabs">
+        <div class="stage-tab active" onclick="showStage('l1')">
+            <span>📚</span>
+            <span>HP-L1阶段 (36课)</span>
+        </div>
+        <div class="stage-tab" onclick="showStage('l2')">
+            <span>🎯</span>
+            <span>HP-L2阶段 (36课)</span>
+        </div>
+        <div class="stage-tab" onclick="showStage('l3')">
+            <span>🚀</span>
+            <span>HP-L3阶段 (36课)</span>
+        </div>
+        <div class="stage-tab" onclick="showStage('all')">
+            <span>📖</span>
+            <span>全部阶段 (108课)</span>
+        </div>
+    </div>
+
+    <div class="stage-section active" id="stage-l1">
+        <div class="lessons-grid" id="lessonsContainerL1"></div>
+    </div>
+    <div class="stage-section" id="stage-l2">
+        <div class="lessons-grid" id="lessonsContainerL2"></div>
+    </div>
+    <div class="stage-section" id="stage-l3">
+        <div class="lessons-grid" id="lessonsContainerL3"></div>
+    </div>
+    <div class="stage-section" id="stage-all">
+        <div class="lessons-grid" id="lessonsContainerAll"></div>
+    </div>
 
     <!-- 新增模块：编程与学科融合 · 赋能理科素养 -->
     <div class="academic-section">
@@ -814,13 +1012,13 @@
     </div>
 </div>
 <footer>
-    <p><i class="fas fa-flag-checkered"></i> HP-L1 完整体系 | 每节课配套在线编程练习 + 阶段测试 | 对标GESP一级至三级</p>
-    <div style="margin-top: 14px;"><i class="fas fa-code"></i> 36次课循环递进 · 从变量到链表 · 冲刺信息学竞赛</div>
+    <p><i class="fas fa-flag-checkered"></i> HP-L1/L2/L3 完整体系 | 每节课配套在线编程练习 + 阶段测试 | 对标GESP一级至八级</p>
+    <div style="margin-top: 14px;"><i class="fas fa-code"></i> 108次课循环递进 · 从变量到动态规划 · 冲刺信息学竞赛</div>
 </footer>
 
 <script>
     // 严格遵循36课次，06循环整合为一个课次（包含上下两部分），21数学专题整合为位运算+常用函数
-    const lessonsData = [
+    const l1Lessons = [
         { name: "01-初识C++", topics: [
             { title: "Hello World程序", type: "基础入门", core: "C++程序结构", detail: "掌握C++程序的基本框架，包括头文件、main函数、输出语句的使用", level: "GESP一级", subject: "数学：初步理解函数概念——main函数是程序的入口，类比数学中f(x)函数调用" },
             { title: "变量定义与输出", type: "基础入门", core: "变量与数据类型", detail: "掌握整型、浮点型、字符型等基本数据类型的变量定义、赋值与输出方法", level: "GESP一级", subject: "数学：变量与代数中的未知数对应，理解数据类型类比数的分类（整数/小数）" },
@@ -1019,13 +1217,451 @@
         ]}
     ];
 
-    const container = document.getElementById("lessonsContainer");
-    function renderLessons() {
+    const l2Lessons = [
+        { name: "01-贪心算法", topics: [
+            { title: "胡萝卜最优选择", type: "选择类贪心", core: "贪心策略", detail: "局部最优推导全局最优", level: "GESP四级", subject: "数学：贪心策略应用——贪心策略的实际场景运用" },
+            { title: "最优装载问题", type: "装载问题", core: "贪心排序", detail: "优先选择最轻元素", level: "GESP四级", subject: "数学：贪心排序应用——贪心策略的实际场景运用" },
+            { title: "部分背包问题", type: "背包类贪心", core: "单价贪心", detail: "单位价值排序思想", level: "GESP四级", subject: "数学：单价贪心应用——贪心策略的实际场景运用" },
+            { title: "分组乘船问题", type: "双指针贪心", core: "配对贪心", detail: "最轻与最重组合策略", level: "GESP四级", subject: "数学：配对贪心应用——贪心策略的实际场景运用" },
+            { title: "排队等待问题", type: "排序优化", core: "时间复杂度优化", detail: "最短时间优先策略", level: "GESP四级", subject: "数学：时间复杂度优化应用——贪心策略的实际场景运用" },
+            { title: "会议安排问题", type: "区间贪心", core: "区间调度", detail: "按结束时间排序", level: "GESP四级", subject: "数学：区间调度应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "38-阶段复习与测试（三）", topics: [
+            { title: "阶段综合测评", type: "测试", core: "综合应用", detail: "HP-L2阶段核心知识综合测试", level: "GESP六级", subject: "数学：综合测试应用——综合知识的实际场景运用" }
+        ]},
+        { name: "02-贪心进阶", topics: [
+            { title: "节省时间2", type: "多队列贪心", core: "多老师排队问题", detail: "最短任务优先、模拟调度", level: "GESP四级", subject: "数学：多老师排队问题应用——贪心策略的实际场景运用" },
+            { title: "节省时间3", type: "多队列优化", core: "贪心+递推", detail: "n位老师循环分配", level: "GESP五级", subject: "数学：贪心+递推应用——贪心策略的实际场景运用" },
+            { title: "区间选点", type: "区间覆盖问题", core: "区间贪心", detail: "右端点排序", level: "GESP五级", subject: "数学：区间贪心应用——贪心策略的实际场景运用" },
+            { title: "区间选点（左端点做法）", type: "区间交集问题", core: "区间重叠维护", detail: "动态维护重叠区间", level: "GESP五级", subject: "数学：区间重叠维护应用——贪心策略的实际场景运用" },
+            { title: "导弹攻防战", type: "导弹拦截问题", core: "贪心+最长下降序列思想", detail: "系统分配策略", level: "GESP五级", subject: "数学：贪心+最长下降序列思想应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "03-递推算法", topics: [
+            { title: "兔子繁殖问题", type: "斐波那契递推", core: "递推基础", detail: "前两项递推当前项", level: "GESP四级", subject: "数学：递推基础应用——贪心策略的实际场景运用" },
+            { title: "台阶问题", type: "路径递推", core: "递推状态转移", detail: "走楼梯方案数统计", level: "GESP四级", subject: "数学：递推状态转移应用——贪心策略的实际场景运用" },
+            { title: "铺瓷砖问题", type: "覆盖类递推", core: "递推规律分析", detail: "状态拆分与递推", level: "GESP四级", subject: "数学：递推规律分析应用——贪心策略的实际场景运用" },
+            { title: "数列求值", type: "数列递推", core: "递推公式建立", detail: "利用递推公式求解", level: "GESP四级", subject: "数学：递推公式建立应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "04-递推进阶", topics: [
+            { title: "珠心算测验", type: "枚举递推", core: "集合枚举", detail: "两数之和判定与去重", level: "GESP四级", subject: "数学：集合枚举应用——贪心策略的实际场景运用" },
+            { title: "铺地毯", type: "模拟枚举", core: "坐标覆盖判断", detail: "二维坐标覆盖关系", level: "GESP四级", subject: "数学：坐标覆盖判断应用——贪心策略的实际场景运用" },
+            { title: "黑色星期五", type: "日期递推", core: "日期与周期问题", detail: "星期循环与日期编号", level: "GESP五级", subject: "数学：日期与周期问题应用——贪心策略的实际场景运用" },
+            { title: "导弹拦截", type: "优化枚举", core: "贪心与枚举结合", detail: "最优半径平方和", level: "GESP五级", subject: "数学：贪心与枚举结合应用——贪心策略的实际场景运用" },
+            { title: "移动路线", type: "二维递推", core: "路径计数", detail: "网格路径动态递推", level: "GESP五级", subject: "数学：路径计数应用——贪心策略的实际场景运用" },
+            { title: "路径计数", type: "障碍递推", core: "二维动态规划", detail: "带障碍路径统计", level: "GESP五级", subject: "数学：二维动态规划应用——贪心策略的实际场景运用" },
+            { title: "数字金字塔", type: "二维递推", core: "最大路径和", detail: "max状态转移", level: "GESP五级", subject: "数学：最大路径和应用——贪心策略的实际场景运用" },
+            { title: "数字金字塔2", type: "二维递推", core: "最小路径和", detail: "min状态转移", level: "GESP五级", subject: "数学：最小路径和应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "05-二分算法", topics: [
+            { title: "数字炸弹", type: "二分基础", core: "二分查找思想", detail: "每次取中间值缩小搜索范围；理解L、R、mid的含义", level: "GESP四级", subject: "数学：二分查找思想应用——贪心策略的实际场景运用" },
+            { title: "猜数字问题", type: "标准二分", core: "二分查找模板", detail: "while(L<=R)、mid计算、范围更新", level: "GESP四级", subject: "数学：二分查找模板应用——贪心策略的实际场景运用" },
+            { title: "字典找字", type: "二分查找应用", core: "查找次数统计", detail: "使用计数变量统计二分次数", level: "GESP四级", subject: "数学：查找次数统计应用——贪心策略的实际场景运用" },
+            { title: "猜数游戏2", type: "二分复杂度", core: "二分效率分析", detail: "理解二分次数与数据范围关系", level: "GESP四级", subject: "数学：二分效率分析应用——贪心策略的实际场景运用" },
+            { title: "团队猜数", type: "二分综合应用", core: "多次二分累加", detail: "循环调用二分统计多次查找总次数", level: "GESP四级", subject: "数学：多次二分累加应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "06-二分进阶", topics: [
+            { title: "切割木材", type: "二分答案", core: "最大值最小化问题", detail: "判断某个长度是否可行；记录可行解", level: "GESP五级", subject: "数学：最大值最小化问题应用——贪心策略的实际场景运用" },
+            { title: "造海船", type: "二分答案模板", core: "可行性验证", detail: "统计切割数量，满足条件继续扩大答案", level: "GESP五级", subject: "数学：可行性验证应用——贪心策略的实际场景运用" },
+            { title: "新校区布网", type: "二分答案（小数处理）", core: "精度转换", detail: "浮点转整数（米转厘米）避免精度误差", level: "GESP五级", subject: "数学：精度转换应用——贪心策略的实际场景运用" },
+            { title: "饲养斗牛", type: "最小值最大化", core: "贪心+二分答案", detail: "验证最小距离是否可行", level: "GESP六级", subject: "数学：贪心+二分答案应用——贪心策略的实际场景运用" },
+            { title: "跳石头比赛", type: "移走石头", core: "区间删除+二分答案", detail: "验证间距是否可行；统计需移走的石头数量", level: "GESP六级", subject: "数学：区间删除+二分答案应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "07-快速排序", topics: [
+            { title: "整理文件", type: "降序排序", core: "快速排序", detail: "快速排序降序实现与递归划分", level: "GESP五级", subject: "数学：快速排序应用——贪心策略的实际场景运用" },
+            { title: "排身高", type: "升序排序", core: "快速排序模板", detail: "多数据排序与有序输出", level: "GESP五级", subject: "数学：快速排序模板应用——贪心策略的实际场景运用" },
+            { title: "时间统计", type: "排序+筛选", core: "预处理+排序", detail: "先筛选符合条件的数据，再排序", level: "GESP六级", subject: "数学：预处理+排序应用——贪心策略的实际场景运用" },
+            { title: "结果最大", type: "自定义排序", core: "贪心+排序优化", detail: "通过排序调整组合顺序得到最优结果", level: "GESP六级", subject: "数学：贪心+排序优化应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "08-归并排序", topics: [
+            { title: "录取分数线", type: "降序排序", core: "归并排序", detail: "归并排序降序实现与稳定合并", level: "GESP五级", subject: "数学：归并排序应用——贪心策略的实际场景运用" },
+            { title: "兔子排行榜", type: "结构体排序", core: "归并排序", detail: "结构体排序与稳定排序实现", level: "GESP六级", subject: "数学：归并排序应用——贪心策略的实际场景运用" },
+            { title: "能量收集器", type: "逆序对统计", core: "归并排序", detail: "归并排序结合数据统计与区间处理", level: "GESP六级", subject: "数学：归并排序应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "09-栈", topics: [
+            { title: "栈的操作", type: "栈", core: "数组模拟栈", detail: "实现入栈、出栈、获取栈顶元素操作，按顺序输出出栈元素和栈顶", level: "GESP四级", subject: "数学：数组模拟栈应用——贪心策略的实际场景运用" },
+            { title: "小鱼的数字游戏", type: "栈", core: "栈实现逆序输出", detail: "将n个数字入栈后依次出栈，实现逆序输出", level: "GESP四级", subject: "数学：栈实现逆序输出应用——贪心策略的实际场景运用" },
+            { title: "小括号问题", type: "栈", core: "括号匹配", detail: "判断只包含圆括号的表达式是否匹配", level: "GESP四级", subject: "数学：括号匹配应用——贪心策略的实际场景运用" },
+            { title: "括号匹配问题", type: "栈", core: "多括号匹配", detail: "判断包含圆括号和方括号的表达式是否匹配", level: "GESP四级", subject: "数学：多括号匹配应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "10-队列", topics: [
+            { title: "队列的操作", type: "队列", core: "数组模拟队列", detail: "实现入队、出队、获取队首元素操作，按顺序输出出队元素和队首", level: "GESP四级", subject: "数学：数组模拟队列应用——贪心策略的实际场景运用" },
+            { title: "排队问题", type: "队列", core: "约瑟夫环变种", detail: "报数1出列，报数2移到队尾，求最终出列顺序", level: "GESP四级", subject: "数学：约瑟夫环变种应用——贪心策略的实际场景运用" },
+            { title: "破解密码", type: "队列", core: "队列模拟", detail: "第1个数字删除，第2个数字移到队尾，重复直到队列空", level: "GESP四级", subject: "数学：队列模拟应用——贪心策略的实际场景运用" },
+            { title: "密码升级", type: "队列", core: "队列模拟升级", detail: "第1个数字删除，第2、3个数字移到队尾，重复直到队列空", level: "GESP四级", subject: "数学：队列模拟升级应用——贪心策略的实际场景运用" },
+            { title: "舞会", type: "队列", core: "双队列模拟", detail: "模拟男女配对跳舞，舞曲结束后回到各自队尾", level: "GESP四级", subject: "数学：双队列模拟应用——贪心策略的实际场景运用" },
+            { title: "小括号问题", type: "STL栈", core: "括号匹配", detail: "使用STL栈判断只包含圆括号的表达式是否匹配", level: "GESP四级", subject: "数学：括号匹配应用——贪心策略的实际场景运用" },
+            { title: "排队问题", type: "STL队列", core: "约瑟夫环变种", detail: "使用STL队列模拟报数出列过程", level: "GESP四级", subject: "数学：约瑟夫环变种应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "11-STL模板", topics: [
+            { title: "去掉重复数字", type: "STL vector", core: "排序 + 去重", detail: "用vector存储数据，排序后统计不同数字个数", level: "GESP四级", subject: "数学：排序 + 去重应用——贪心策略的实际场景运用" },
+            { title: "出栈序列", type: "STL栈", core: "出栈序列合法性判断", detail: "给定入栈序列和出栈序列，判断是否合法", level: "GESP五级", subject: "数学：出栈序列合法性判断应用——贪心策略的实际场景运用" },
+            { title: "合理的栈顺序", type: "STL栈", core: "出栈序列合法性", detail: "判断给定入栈和出栈序列是否合法", level: "GESP五级", subject: "数学：出栈序列合法性应用——贪心策略的实际场景运用" },
+            { title: "后缀表达式求值", type: "栈", core: "后缀表达式计算", detail: "使用栈计算后缀表达式的值", level: "GESP五级", subject: "数学：后缀表达式计算应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "12-栈进阶", topics: [
+            { title: "波兰表达式", type: "栈", core: "前缀表达式计算", detail: "使用栈计算前缀表达式的值", level: "GESP五级", subject: "数学：前缀表达式计算应用——贪心策略的实际场景运用" },
+            { title: "表达式求值", type: "栈", core: "中缀表达式求值", detail: "计算只包含加法和乘法的表达式，结果取后4位", level: "GESP五级", subject: "数学：中缀表达式求值应用——贪心策略的实际场景运用" },
+            { title: "中缀转后缀", type: "栈", core: "中缀转后缀表达式", detail: "将中缀表达式转换为后缀表达式（含括号）", level: "GESP六级", subject: "数学：中缀转后缀表达式应用——贪心策略的实际场景运用" },
+            { title: "猴子选大王", type: "循环队列", core: "约瑟夫环", detail: "用循环队列模拟报数淘汰过程，求最后出列者编号", level: "GESP四级", subject: "数学：约瑟夫环应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "13-队列进阶", topics: [
+            { title: "选领诵", type: "循环队列", core: "带次数的约瑟夫环", detail: "男生1次机会，女生2次机会，报数淘汰，求最后出列者", level: "GESP五级", subject: "数学：带次数的约瑟夫环应用——贪心策略的实际场景运用" },
+            { title: "排队看病", type: "双端队列", core: "双端队列应用", detail: "根据左右方向安排座位，最后从左到右输出姓名", level: "GESP四级", subject: "数学：双端队列应用应用——贪心策略的实际场景运用" },
+            { title: "公交换乘", type: "数组模拟队列", core: "优惠券管理", detail: "地铁获得优惠券，公交优先使用最早且符合条件的优惠券", level: "GESP六级", subject: "数学：优惠券管理应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "14-大整数加法", topics: [
+            { title: "存储两个大整数", type: "基础存储", core: "大整数存储", detail: "字符串转整数数组存储", level: "GESP四级", subject: "数学：大整数存储应用——贪心策略的实际场景运用" },
+            { title: "大整数加法", type: "高精度加法", core: "大整数加法", detail: "逆序存储、对应位相加、处理进位", level: "GESP四级", subject: "数学：大整数加法应用——贪心策略的实际场景运用" },
+            { title: "三个大整数相加", type: "高精度加法", core: "大整数加法", detail: "三数相加，处理进位", level: "GESP五级", subject: "数学：大整数加法应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "15-大整数减法", topics: [
+            { title: "判断两个大整数大小", type: "大小比较", core: "字符串比较", detail: "先比长度，再按位比较", level: "GESP四级", subject: "数学：字符串比较应用——贪心策略的实际场景运用" },
+            { title: "大整数减法（被减数≥减数）", type: "高精度减法", core: "大整数减法", detail: "逆序存储、借位处理、去除前导0", level: "GESP四级", subject: "数学：大整数减法应用——贪心策略的实际场景运用" },
+            { title: "大整数减法（被减数<减数）", type: "高精度减法", core: "大整数减法", detail: "交换两数、输出负号、借位处理", level: "GESP五级", subject: "数学：大整数减法应用——贪心策略的实际场景运用" },
+            { title: "三个大整数加减", type: "高精度混合运算", core: "大整数混合运算", detail: "先加后减，处理借位和前导0", level: "GESP五级", subject: "数学：大整数混合运算应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "16-大整数乘法", topics: [
+            { title: "统计数码", type: "综合应用", core: "乘法 + 数码统计", detail: "计算大整数乘积后，统计某数码出现的次数", level: "GESP六级", subject: "数学：乘法 + 数码统计应用——贪心策略的实际场景运用" },
+            { title: "大整数乘以小整数", type: "优化模拟", core: "变量存储小整数", detail: "大整数用数组存储，小整数用变量，逐位相乘", level: "GESP五级", subject: "数学：变量存储小整数应用——贪心策略的实际场景运用" },
+            { title: "10000以内阶乘", type: "累乘模拟", core: "大整数累乘小整数", detail: "从1累乘到n，每次用大整数数组乘以小整数变量", level: "GESP六级", subject: "数学：大整数累乘小整数应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "17-阶段复习与测试（一）", topics: [
+            { title: "寻找最大和", type: "枚举算法", core: "三重循环枚举", detail: "在n个数中枚举3个数的所有组合，找出和不大于m的最大和", level: "GESP四级", subject: "数学：三重循环枚举应用——贪心策略的实际场景运用" },
+            { title: "输出前k大的数", type: "快速排序", core: "降序快排", detail: "使用快速排序将数组降序排列，输出前k个元素", level: "GESP五级", subject: "数学：降序快排应用——贪心策略的实际场景运用" },
+            { title: "数据统计", type: "归并排序", core: "结构体排序 + 稳定排序", detail: "对学生平均分进行降序归并排序，平均分相同时按输入顺序输出", level: "GESP六级", subject: "数学：结构体排序 + 稳定排序应用——贪心策略的实际场景运用" },
+            { title: "图书管理员", type: "二分查找", core: "二分查找次数统计", detail: "在1~1000范围内二分查找目标数字，统计比较次数", level: "GESP四级", subject: "数学：二分查找次数统计应用——贪心策略的实际场景运用" },
+            { title: "分巧克力", type: "二分答案", core: "最大值最小化 + 可行性验证", detail: "二分正方形边长，验证能否切出至少K块巧克力", level: "GESP六级", subject: "数学：最大值最小化 + 可行性验证应用——贪心策略的实际场景运用" },
+            { title: "丰富的周日生活", type: "贪心算法", core: "区间调度", detail: "按结束时间排序，选择不冲突的最多活动数", level: "GESP四级", subject: "数学：区间调度应用——贪心策略的实际场景运用" },
+            { title: "增加饮水机", type: "贪心进阶", core: "多队列排队问题", detail: "打水时间升序排列，按饮水机数量循环累加完成时间", level: "GESP五级", subject: "数学：多队列排队问题应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "18-阶段复习与测试（二）", topics: [
+            { title: "修补计算", type: "大整数减法", core: "替换模糊数字 + 无借位减法", detail: "将减数中的*替换为5，再进行无借位大整数减法", level: "GESP四级", subject: "数学：替换模糊数字 + 无借位减法应用——贪心策略的实际场景运用" },
+            { title: "数字出现的次数", type: "大整数加法", core: "加法 + 数码统计", detail: "计算两个大整数的和，统计某数码出现的次数", level: "GESP五级", subject: "数学：加法 + 数码统计应用——贪心策略的实际场景运用" },
+            { title: "草船借箭", type: "栈", core: "栈实现逆序输出", detail: "每3个数字入栈再出栈，实现分组逆序输出", level: "GESP四级", subject: "数学：栈实现逆序输出应用——贪心策略的实际场景运用" },
+            { title: "字母排排站", type: "队列", core: "队列模拟", detail: "队首元素移到队尾，再删除新队首，重复直到队列空", level: "GESP四级", subject: "数学：队列模拟应用——贪心策略的实际场景运用" },
+            { title: "最大元素的个数", type: "STL-vector", core: "vector存储 + 排序统计", detail: "用vector存储数据，排序后统计最大元素的个数", level: "GESP四级", subject: "数学：vector存储 + 排序统计应用——贪心策略的实际场景运用" },
+            { title: "约瑟夫问题2", type: "队列进阶", core: "围圈报数 + 结构体队列", detail: "用队列模拟报数出圈，输出编号和姓名", level: "GESP五级", subject: "数学：围圈报数 + 结构体队列应用——贪心策略的实际场景运用" },
+            { title: "表达式求值2", type: "栈进阶", core: "中缀表达式求值（+ - × /）", detail: "用栈处理加减乘除运算，结果保留后4位", level: "GESP六级", subject: "数学：中缀表达式求值（+ - × /）应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "19-前缀和与差分", topics: [
+            { title: "计算区间和", type: "前缀和", core: "前缀和递推", detail: "预处理前缀和数组，O(1)计算任意区间和", level: "GESP四级", subject: "数学：前缀和递推应用——贪心策略的实际场景运用" },
+            { title: "K个元素和", type: "前缀和", core: "定长区间和", detail: "遍历所有长度为K的区间，输出每个区间和", level: "GESP四级", subject: "数学：定长区间和应用——贪心策略的实际场景运用" },
+            { title: "m倍的区间", type: "前缀和", core: "区间和统计", detail: "统计所有长度为K的区间中，区间和是m的倍数的个数", level: "GESP五级", subject: "数学：区间和统计应用——贪心策略的实际场景运用" },
+            { title: "最大区间和", type: "前缀和", core: "区间最值", detail: "在所有长度为K的区间中，找到最大区间和及其起止位置", level: "GESP五级", subject: "数学：区间最值应用——贪心策略的实际场景运用" },
+            { title: "混合操作", type: "前缀和", core: "单点修改 + 区间查询", detail: "支持单点修改和区间查询，修改后重新计算前缀和", level: "GESP五级", subject: "数学：单点修改 + 区间查询应用——贪心策略的实际场景运用" },
+            { title: "迷宫", type: "DFS", core: "路径连通性判断", detail: "从起点DFS搜索到终点，判断是否有可行路径", level: "GESP四级", subject: "数学：路径连通性判断应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "20-深度优先搜索（一）", topics: [
+            { title: "探索迷宫", type: "DFS", core: "起点障碍判断 + 连通性", detail: "判断起点是否为障碍，再从起点DFS到指定终点", level: "GESP四级", subject: "数学：起点障碍判断 + 连通性应用——贪心策略的实际场景运用" },
+            { title: "八个方向", type: "DFS", core: "八方向搜索", detail: "从起点出发，向八个方向搜索到值为2的位置", level: "GESP四级", subject: "数学：八方向搜索应用——贪心策略的实际场景运用" },
+            { title: "中国象棋的马", type: "DFS", core: "马走日方向", detail: "按马走日的八个方向搜索，判断能否到达目标位置", level: "GESP五级", subject: "数学：马走日方向应用——贪心策略的实际场景运用" },
+            { title: "统计线路", type: "DFS", core: "路径计数 + 回溯", detail: "统计从起点到终点所有不重复经过格子的路径条数", level: "GESP五级", subject: "数学：路径计数 + 回溯应用——贪心策略的实际场景运用" },
+            { title: "岛屿", type: "DFS", core: "连通块大小统计", detail: "从(1,1)出发，统计所在连通块中可通行格子的数量", level: "GESP四级", subject: "数学：连通块大小统计应用——贪心策略的实际场景运用" },
+            { title: "红与黑", type: "DFS", core: "连通块大小统计", detail: "从@位置出发，统计所有可达的黑色瓷砖数量", level: "GESP四级", subject: "数学：连通块大小统计应用——贪心策略的实际场景运用" },
+            { title: "疾病预防系统", type: "DFS", core: "连通块数量统计", detail: "遍历整个地图，统计所有由1组成的连通块个数", level: "GESP五级", subject: "数学：连通块数量统计应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "21-深度优先搜索（二）", topics: [
+            { title: "多少块水洼", type: "DFS", core: "八方向连通块统计", detail: "统计由'W'组成的八方向连通块个数", level: "GESP五级", subject: "数学：八方向连通块统计应用——贪心策略的实际场景运用" },
+            { title: "围成面积", type: "DFS", core: "外围标记 + 内部统计", detail: "从最外圈DFS标记外围0，再统计内部未被标记的0的个数", level: "GESP六级", subject: "数学：外围标记 + 内部统计应用——贪心策略的实际场景运用" },
+            { title: "全排列", type: "DFS + 全排列", core: "数字全排列", detail: "输出1~n的所有全排列，按升序输出", level: "GESP四级", subject: "数学：数字全排列应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "22-深搜进阶", topics: [
+            { title: "降序优先的全排列", type: "DFS + 全排列", core: "降序排序 + 全排列", detail: "对输入数字降序排序后，输出所有全排列", level: "GESP四级", subject: "数学：降序排序 + 全排列应用——贪心策略的实际场景运用" },
+            { title: "字母全排列", type: "DFS + 全排列", core: "字符全排列 + 字典序", detail: "输出给定字符串的所有全排列，按字典序输出", level: "GESP四级", subject: "数学：字符全排列 + 字典序应用——贪心策略的实际场景运用" },
+            { title: "N个数所有情况的全排列", type: "DFS + 全排列", core: "部分排列输出", detail: "每放置一个数字就输出当前排列，直到所有数字放完", level: "GESP五级", subject: "数学：部分排列输出应用——贪心策略的实际场景运用" },
+            { title: "N个数选K个数从小到大排列", type: "DFS + 组合", core: "组合枚举 + 去重", detail: "从n个数中选k个，按升序输出所有组合（不重复）", level: "GESP五级", subject: "数学：组合枚举 + 去重应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "23-广度优先搜索（一）", topics: [
+            { title: "广搜迷宫", type: "BFS", core: "路径连通性判断", detail: "从起点BFS搜索到终点，判断是否有可行路径", level: "GESP四级", subject: "数学：路径连通性判断应用——贪心策略的实际场景运用" },
+            { title: "棋盘寻宝", type: "BFS", core: "起点障碍判断 + 连通性", detail: "判断起点是否为障碍，再从起点BFS到指定终点", level: "GESP四级", subject: "数学：起点障碍判断 + 连通性应用——贪心策略的实际场景运用" },
+            { title: "岛屿面积", type: "BFS", core: "连通块大小统计", detail: "从降落点BFS，统计所在连通块中可通行格子的数量", level: "GESP四级", subject: "数学：连通块大小统计应用——贪心策略的实际场景运用" },
+            { title: "能养几只公羊", type: "BFS", core: "连通块数量统计", detail: "遍历整个地图，统计所有由0组成的连通块个数", level: "GESP五级", subject: "数学：连通块数量统计应用——贪心策略的实际场景运用" },
+            { title: "森林探险", type: "BFS", core: "多组测试 + 连通性判断", detail: "对每组数据从起点BFS到终点，判断是否可达", level: "GESP四级", subject: "数学：多组测试 + 连通性判断应用——贪心策略的实际场景运用" },
+            { title: "海上营救", type: "BFS求最短路径", core: "八方向 + 最短路径长度", detail: "从起点向八个方向BFS，求到终点的最少步数", level: "GESP五级", subject: "数学：八方向 + 最短路径长度应用——贪心策略的实际场景运用" },
+            { title: "象走田", type: "BFS求最短路径", core: "马走日方向 + 最短路径长度", detail: "按象走田的四个方向BFS，求从起点到终点的最少步数", level: "GESP五级", subject: "数学：马走日方向 + 最短路径长度应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "24-广度优先搜索（二）", topics: [
+            { title: "最少步数", type: "BFS求最短路径", core: "马走日 + 多目标最短路径", detail: "从(1,1)出发，分别求到A点和B点的最少步数", level: "GESP五级", subject: "数学：马走日 + 多目标最短路径应用——贪心策略的实际场景运用" },
+            { title: "奇怪的电梯", type: "BFS求最短路径", core: "一维BFS + 上下移动", detail: "每层有上下移动步数，求从A层到B层的最少按钮次数", level: "GESP五级", subject: "数学：一维BFS + 上下移动应用——贪心策略的实际场景运用" },
+            { title: "图像填充", type: "BFS + 泛洪算法", core: "连通块颜色替换", detail: "从起点BFS，将所有与起点颜色相同的连通块格子替换为新颜色", level: "GESP四级", subject: "数学：连通块颜色替换应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "25-广搜进阶", topics: [
+            { title: "山峰和山谷", type: "BFS + 连通块状态判断", core: "八方向连通块 + 边界高度比较", detail: "统计八方向连通块中，边界全大于为山谷、全小于为山峰", level: "GESP六级", subject: "数学：八方向连通块 + 边界高度比较应用——贪心策略的实际场景运用" },
+            { title: "棋盘", type: "BFS + 带权最短路径", core: "颜色变化代价 + 魔法使用", detail: "从左上角到右下角，根据颜色相同/不同花费金币，可使用魔法改变无色格子", level: "GESP七级", subject: "数学：颜色变化代价 + 魔法使用应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "26-认识图", topics: [
+            { title: "图的邻接矩阵", type: "图存储", core: "无向图邻接矩阵", detail: "输入无向图的边，输出对应的邻接矩阵", level: "GESP四级", subject: "数学：无向图邻接矩阵应用——贪心策略的实际场景运用" },
+            { title: "网的邻接矩阵1", type: "图存储", core: "有向带权图邻接矩阵", detail: "输入有向带权图的边，用极大值表示无边，输出邻接矩阵", level: "GESP五级", subject: "数学：有向带权图邻接矩阵应用——贪心策略的实际场景运用" },
+            { title: "网的邻接矩阵2", type: "图存储", core: "无向带权图邻接矩阵", detail: "输入无向带权图的边，用极大值表示无边，输出邻接矩阵", level: "GESP五级", subject: "数学：无向带权图邻接矩阵应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "27-图的基本应用", topics: [
+            { title: "认识新朋友", type: "图搜索", core: "无向图 + 路径计数", detail: "从起点3出发，统计到达目标结点的所有路径条数（结点不重复）", level: "GESP五级", subject: "数学：无向图 + 路径计数应用——贪心策略的实际场景运用" },
+            { title: "干扰者病毒", type: "图遍历 + 状态标记", core: "二染色问题", detail: "每条边两端不能同时放病毒也不能都不放，求最少病毒数", level: "GESP六级", subject: "数学：二染色问题应用——贪心策略的实际场景运用" },
+            { title: "连环询问", type: "前缀和", core: "区间和多次查询", detail: "预处理前缀和数组，O(1)回答每个区间和询问", level: "GESP四级", subject: "数学：区间和多次查询应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "28-阶段复习与测试", topics: [
+            { title: "机器人除草", type: "DFS", core: "全图遍历", detail: "从起点按上右下左顺序DFS，记录最后一个访问的格子", level: "GESP四级", subject: "数学：全图遍历应用——贪心策略的实际场景运用" },
+            { title: "送快递", type: "DFS", core: "路径连通性判断", detail: "从(1,1)DFS到(n,n)，判断是否存在可行路径", level: "GESP四级", subject: "数学：路径连通性判断应用——贪心策略的实际场景运用" },
+            { title: "你问我答", type: "DFS + 全排列", core: "部分排列输出", detail: "每放置一个数字就输出当前排列，直到所有数字放完", level: "GESP五级", subject: "数学：部分排列输出应用——贪心策略的实际场景运用" },
+            { title: "破解密码", type: "DFS + 全排列", core: "数字全排列", detail: "给定n个互不相同的数字，输出所有全排列", level: "GESP四级", subject: "数学：数字全排列应用——贪心策略的实际场景运用" },
+            { title: "寻找长生药", type: "BFS", core: "路径连通性判断", detail: "从(1,1)BFS到'@'位置，判断是否存在可行路径", level: "GESP四级", subject: "数学：路径连通性判断应用——贪心策略的实际场景运用" },
+            { title: "林地修补", type: "BFS + 泛洪算法", core: "八方向连通块替换 + 统计", detail: "从起点BFS八方向，将与起点相同字母的连通块替换为新字母，并统计格子数", level: "GESP五级", subject: "数学：八方向连通块替换 + 统计应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "29-动态规划基础", topics: [
+            { title: "挖矿", type: "二维DP", core: "路径最大值", detail: "从左上角到右下角，只能向右或向下，求路径最大值", level: "GESP四级", subject: "数学：路径最大值应用——贪心策略的实际场景运用" },
+            { title: "花生地", type: "二维DP", core: "多组测试 + 路径最大值", detail: "多组数据，每组求从左上角到右下角的路径最大值", level: "GESP四级", subject: "数学：多组测试 + 路径最大值应用——贪心策略的实际场景运用" },
+            { title: "硬币问题", type: "一维DP", core: "凑硬币最少数量", detail: "给定面值1、5、11，求凑出n元的最少硬币数", level: "GESP五级", subject: "数学：凑硬币最少数量应用——贪心策略的实际场景运用" },
+            { title: "方格取数", type: "三维DP", core: "多方向路径最大值", detail: "只能向右、向上、向下，求从左上角到右下角的最大和", level: "GESP六级", subject: "数学：多方向路径最大值应用——贪心策略的实际场景运用" },
+            { title: "温度统计", type: "最大子段和", core: "连续子段最大和", detail: "求序列中连续子段的最大和", level: "GESP四级", subject: "数学：连续子段最大和应用——贪心策略的实际场景运用" },
+            { title: "制作信箱", type: "最长上升子序列", core: "LIS", detail: "求序列的最长上升子序列长度", level: "GESP五级", subject: "数学：LIS应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "30-动态规划-子序列问题", topics: [
+            { title: "高低错落的大楼", type: "最长上升子序列变种", core: "有遮挡的LIS", detail: "从左向右看，只能看到递增序列，求最大可见数量", level: "GESP五级", subject: "数学：有遮挡的LIS应用——贪心策略的实际场景运用" },
+            { title: "挑选糖果", type: "最长公共子序列", core: "LCS", detail: "求两个字符串的最长公共子序列长度", level: "GESP五级", subject: "数学：LCS应用——贪心策略的实际场景运用" },
+            { title: "上升点列", type: "二维LIS", core: "二维坐标LIS + 可添加点", detail: "在二维平面上找最长上升点列，可添加k个点", level: "GESP六级", subject: "数学：二维坐标LIS + 可添加点应用——贪心策略的实际场景运用" },
+            { title: "装箱问题", type: "01背包", core: "最大体积", detail: "在容量V的箱子中装入物品，使剩余空间最小", level: "GESP四级", subject: "数学：最大体积应用——贪心策略的实际场景运用" },
+            { title: "01背包", type: "01背包", core: "最大价值", detail: "在载重m的背包中放入物品，使总价值最大", level: "GESP五级", subject: "数学：最大价值应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "31-动态规划-背包问题", topics: [
+            { title: "平平疯狂采药", type: "完全背包", core: "无限件物品", detail: "每种草药无限株，在规定时间内采药使总价值最大", level: "GESP五级", subject: "数学：无限件物品应用——贪心策略的实际场景运用" },
+            { title: "纪念品", type: "完全背包 + 周期DP", core: "多天交易", detail: "每天可买卖纪念品，求T天后最大金币数", level: "GESP六级", subject: "数学：多天交易应用——贪心策略的实际场景运用" },
+            { title: "宝岛", type: "多重背包", core: "有限件物品", detail: "每种宝物有有限数量，求最大总价值", level: "GESP五级", subject: "数学：有限件物品应用——贪心策略的实际场景运用" },
+            { title: "宝物筛选", type: "多重背包 + 二进制优化", core: "二进制优化", detail: "用二进制优化多重背包，求最大总价值", level: "GESP六级", subject: "数学：二进制优化应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "32-动态规划-背包进阶", topics: [
+            { title: "买表", type: "多重背包 + 可行性", core: "能否凑出指定金额", detail: "用有限张钱币判断能否凑出每块手表的价格", level: "GESP六级", subject: "数学：能否凑出指定金额应用——贪心策略的实际场景运用" },
+            { title: "混合背包", type: "混合背包", core: "01+完全+多重混合", detail: "根据物品数量选择不同的背包状态转移方程", level: "GESP六级", subject: "数学：01+完全+多重混合应用——贪心策略的实际场景运用" },
+            { title: "摆花", type: "多重背包求方案数", core: "方案数取模", detail: "用有限数量的花摆放m盆，求方案数", level: "GESP五级", subject: "数学：方案数取模应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "33-区间动态规划（一）", topics: [
+            { title: "石子合并（线形）", type: "区间DP", core: "石子合并最小得分", detail: "合并相邻石子堆，求最小得分", level: "GESP五级", subject: "数学：石子合并最小得分应用——贪心策略的实际场景运用" },
+            { title: "抽卡片", type: "区间DP", core: "取卡片最小得分", detail: "取中间卡片，得分为左右×当前，求最小总分", level: "GESP五级", subject: "数学：取卡片最小得分应用——贪心策略的实际场景运用" },
+            { title: "石子合并（环形）", type: "区间DP", core: "环形石子合并", detail: "环形石子合并成1堆的最小和最大得分", level: "GESP六级", subject: "数学：环形石子合并应用——贪心策略的实际场景运用" },
+            { title: "能量项链", type: "区间DP", core: "环形珠子合并最大能量", detail: "合并相邻珠子释放能量，求最大总能量", level: "GESP六级", subject: "数学：环形珠子合并最大能量应用——贪心策略的实际场景运用" },
+            { title: "石子合并（环形）", type: "区间DP", core: "环形石子合并", detail: "环形石子合并成1堆的最小和最大得分", level: "GESP六级", subject: "数学：环形石子合并应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "34-区间动态规划（二）", topics: [
+            { title: "能量项链", type: "区间DP", core: "环形珠子合并最大能量", detail: "合并相邻珠子释放能量，求最大总能量", level: "GESP六级", subject: "数学：环形珠子合并最大能量应用——贪心策略的实际场景运用" },
+            { title: "最长回文子串", type: "区间DP", core: "回文子串判断", detail: "求字符串中最长回文子串的长度", level: "GESP五级", subject: "数学：回文子串判断应用——贪心策略的实际场景运用" },
+            { title: "最长回文子序列", type: "区间DP", core: "回文子序列长度", detail: "求字符串中最长回文子序列的长度", level: "GESP六级", subject: "数学：回文子序列长度应用——贪心策略的实际场景运用" },
+            { title: "回文串修改", type: "区间DP", core: "最少添加字符使回文", detail: "在任意位置添加字符，使字符串变为回文的最少添加数", level: "GESP六级", subject: "数学：最少添加字符使回文应用——贪心策略的实际场景运用" },
+            { title: "括号配对", type: "区间DP", core: "括号匹配最少添加", detail: "添加最少括号使字符串成为GBE（合法括号表达式）", level: "GESP六级", subject: "数学：括号匹配最少添加应用——贪心策略的实际场景运用" }
+        ]},
+        { name: "35-区间动态规划（三）", topics: [
+            { title: "最长回文子串", type: "区间DP", core: "回文子串判断", detail: "求字符串中最长回文子串的长度", level: "GESP五级", subject: "数学：回文子串判断应用——贪心策略的实际场景运用" },
+            { title: "最长回文子序列", type: "区间DP", core: "回文子序列长度", detail: "求字符串中最长回文子序列的长度", level: "GESP六级", subject: "数学：回文子序列长度应用——贪心策略的实际场景运用" },
+            { title: "回文串修改", type: "区间DP", core: "最少添加字符使回文", detail: "在任意位置添加字符，使字符串变为回文的最少添加数", level: "GESP六级", subject: "数学：最少添加字符使回文应用——贪心策略的实际场景运用" },
+            { title: "括号配对", type: "区间DP", core: "括号匹配最少添加", detail: "添加最少括号使字符串成为GBE（合法括号表达式）", level: "GESP六级", subject: "数学：括号匹配最少添加应用——贪心策略的实际场景运用" }
+        ]}
+    ];
+
+    const l3Lessons = [
+        { name: "01-认识树", topics: [
+            { title: "理论知识讲解", type: "理论基础", core: "树与二叉树", detail: "树的定义、结点、度、深度、叶子结点；二叉树的5种基本形态、满二叉树、完全二叉树；先序/中序/后序遍历概念、三种遍历序列互推、层次遍历概念", level: "GESP三级", subject: "数学：树与二叉树应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "02-二叉树应用", topics: [
+            { title: "二叉树遍历", type: "树的遍历", core: "二叉树", detail: "根据输入构建二叉树，并输出前序、中序、后序遍历序列", level: "GESP三级", subject: "数学：二叉树应用——贪心策略的实际场景运用" },
+            { title: "新二叉树", type: "树的遍历", core: "二叉树", detail: "输入二叉树的结点和左右孩子（用字母表示结点，*表示空），输出其前序遍历序列", level: "GESP三级", subject: "数学：二叉树应用——贪心策略的实际场景运用" },
+            { title: "计算二叉树的高度", type: "树的遍历", core: "二叉树", detail: "计算给定二叉树的高度（深度）", level: "GESP三级", subject: "数学：二叉树应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "03-二叉树进阶", topics: [
+            { title: "根据先序中序求后序", type: "树的遍历", core: "二叉树", detail: "根据先序和中序遍历序列，递归构建二叉树并输出后序序列", level: "GESP四级", subject: "数学：二叉树应用——贪心策略的实际场景运用" },
+            { title: "求先序排列", type: "树的遍历", core: "二叉树", detail: "根据中序和后序遍历序列，递归构建二叉树并输出先序序列", level: "GESP四级", subject: "数学：二叉树应用——贪心策略的实际场景运用" },
+            { title: "根据扩展先序序列求中序和后序", type: "树的遍历", core: "扩展二叉树", detail: "根据扩展二叉树的先序序列（空结点用'.'表示）构建二叉树，并输出其中序和后序序列", level: "GESP四级", subject: "数学：扩展二叉树应用——贪心策略的实际场景运用" },
+            { title: "根据扩展后序序列求先序", type: "树的遍历", core: "扩展二叉树", detail: "根据扩展二叉树的后序序列（空结点用'.'表示）构建二叉树，并输出其先序序列", level: "GESP四级", subject: "数学：扩展二叉树应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "04-排列组合（一）", topics: [
+            { title: "小球错排问题", type: "递推/深搜", core: "排列组合", detail: "计算n个不同小球完全放错盒子的方案数，递推公式：a[n]=(n-1)*(a[n-1]+a[n-2])", level: "GESP四级", subject: "数学：排列组合应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "05-排列组合（二）", topics: [
+            { title: "杨辉三角数字", type: "递推", core: "递推", detail: "计算杨辉三角第n行第m列的数值，递推关系：a[i][j]=a[i-1][j-1]+a[i-1][j]", level: "GESP三级", subject: "数学：递推应用——贪心策略的实际场景运用" },
+            { title: "苹果摆放", type: "递归", core: "递归", detail: "计算将M个相同苹果放入N个相同盘子（允许空盘）的不同分法，递归边界：f(0,n)=f(1,n)=f(m,1)=1", level: "GESP四级", subject: "数学：递归应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "06-质数筛法", topics: [
+            { title: "质因数分解", type: "数学", core: "质因数", detail: "输入一个合数，将其分解为质因数并输出，注意最后剩余质因数的处理", level: "GESP三级", subject: "数学：质因数应用——贪心策略的实际场景运用" },
+            { title: "质因数的个数", type: "枚举/数学", core: "质因数", detail: "统计N到M之间每个数质因数的个数，并输出最大值", level: "GESP三级", subject: "数学：质因数应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "07-阶段复习与测试", topics: [
+            { title: "放小球", type: "递推/递归", core: "递推", detail: "将M个不同小球放入N个相同盘子（不允许空盘）的方案数，递推公式：f(m,n)=f(m-1,n-1)+f(m-1,n)*n", level: "GESP四级", subject: "数学：递推应用——贪心策略的实际场景运用" },
+            { title: "超级素数", type: "深搜/数学", core: "质数", detail: "统计所有小于等于n的'超级素数'（每去掉最后一位仍是素数）的个数，用DFS剪枝优化", level: "GESP四级", subject: "数学：质数应用——贪心策略的实际场景运用" },
+            { title: "外星微生物", type: "区间DP", core: "动态规划", detail: "计算合并相邻生物所需的最少药剂消耗量，区间DP模板题", level: "GESP五级", subject: "数学：动态规划应用——贪心策略的实际场景运用" },
+            { title: "回文子串的个数", type: "区间DP", core: "动态规划", detail: "计算一个字符串中回文子串的总个数，用区间DP标记回文状态", level: "GESP五级", subject: "数学：动态规划应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "08-枚举算法应用", topics: [
+            { title: "约数研究加强版", type: "枚举/数学", core: "约数", detail: "计算1到n每个数约数个数的总和，通过切换枚举对象优化时间复杂度", level: "GESP三级", subject: "数学：约数应用——贪心策略的实际场景运用" },
+            { title: "符合条件的自然数加强版", type: "枚举/二分", core: "二分答案", detail: "寻找最小的n，使n!末尾有x个0，利用二分优化枚举范围", level: "GESP四级", subject: "数学：二分答案应用——贪心策略的实际场景运用" },
+            { title: "偶数矩阵", type: "枚举/位运算", core: "枚举优化", detail: "将0/1矩阵变为'偶数矩阵'所需的最小修改次数，枚举第一行推导后续行", level: "GESP五级", subject: "数学：枚举优化应用——贪心策略的实际场景运用" },
+            { title: "拉灯", type: "枚举/位运算", core: "枚举优化", detail: "5×5拉灯游戏，6步以内使所有灯变亮，枚举第一行按灯方案推导后续行", level: "GESP五级", subject: "数学：枚举优化应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "09-贪心算法应用", topics: [
+            { title: "纪念品分组", type: "贪心", core: "贪心算法", detail: "将纪念品分组，每组件数最多为2，价格之和不超过上限，求最少组数", level: "GESP四级", subject: "数学：贪心算法应用——贪心策略的实际场景运用" },
+            { title: "摘到多少气球", type: "贪心", core: "贪心算法", detail: "每人最多摘两个气球，优先让较高的同学摘取较高的气球，计算最多能摘到的气球数", level: "GESP四级", subject: "数学：贪心算法应用——贪心策略的实际场景运用" },
+            { title: "巧夺大奖", type: "贪心", core: "贪心算法", detail: "每个游戏有完成期限和奖励，在时间限制内安排游戏使总奖励最高", level: "GESP四级", subject: "数学：贪心算法应用——贪心策略的实际场景运用" },
+            { title: "排座椅", type: "贪心", core: "贪心算法", detail: "安排横向和纵向通道隔开交头接耳的同学，使交头接耳对数最少", level: "GESP四级", subject: "数学：贪心算法应用——贪心策略的实际场景运用" },
+            { title: "浇水问题", type: "贪心", core: "贪心算法", detail: "选择最少数量的灌溉设备覆盖整个[0,m]区间，区间覆盖模板题", level: "GESP四级", subject: "数学：贪心算法应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "10-模拟算法应用", topics: [
+            { title: "接水问题", type: "模拟", core: "模拟算法", detail: "模拟多水龙头排队接水过程，每次找总用时最少的水龙头接水，计算总时间", level: "GESP三级", subject: "数学：模拟算法应用——贪心策略的实际场景运用" },
+            { title: "校门外的灯", type: "模拟", core: "模拟算法", detail: "路灯有5种状态循环变化，模拟4种开关操作，统计最后关闭的灯的数量", level: "GESP三级", subject: "数学：模拟算法应用——贪心策略的实际场景运用" },
+            { title: "小苹果", type: "模拟/数学", core: "模拟算法", detail: "每隔2个苹果拿走1个，模拟取苹果过程，计算取完天数和编号n被取走的天数", level: "GESP三级", subject: "数学：模拟算法应用——贪心策略的实际场景运用" },
+            { title: "字符串的展开", type: "模拟", core: "模拟算法", detail: "模拟字符串展开规则（填充小写/大写/星号、重复次数、正序/逆序），输出展开结果", level: "GESP四级", subject: "数学：模拟算法应用——贪心策略的实际场景运用" },
+            { title: "lucky果", type: "模拟/优先队列", core: "模拟算法", detail: "模拟果实的收购和按排名吃掉的过程，用两个优先队列优化定位第q大", level: "GESP五级", subject: "数学：模拟算法应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "11-搜索算法应用", topics: [
+            { title: "数的计数", type: "记忆化搜索/递归", core: "深度优先搜索", detail: "在左边加上不超过原数一半的自然数，统计合法数列个数，用记忆化搜索优化", level: "GESP四级", subject: "数学：深度优先搜索应用——贪心策略的实际场景运用" },
+            { title: "走路回家", type: "记忆化搜索/DFS", core: "深度优先搜索", detail: "从左上角走到右下角，只能向下或向右，最多转弯K次，统计路径数", level: "GESP五级", subject: "数学：深度优先搜索应用——贪心策略的实际场景运用" },
+            { title: "工作分配问题", type: "剪枝/DFS", core: "深度优先搜索", detail: "为n个人分配n项工作，使总收益最大，用最优化剪枝优化", level: "GESP五级", subject: "数学：深度优先搜索应用——贪心策略的实际场景运用" },
+            { title: "最短时间", type: "剪枝/DFS", core: "深度优先搜索", detail: "从起点到终点找耗时最短路径，用最优化剪枝优化", level: "GESP五级", subject: "数学：深度优先搜索应用——贪心策略的实际场景运用" },
+            { title: "数的划分", type: "剪枝/DFS", core: "深度优先搜索", detail: "将整数n分成k份且每份不为空，去重后求不同分法数", level: "GESP五级", subject: "数学：深度优先搜索应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "12-复赛模拟比赛", topics: [
+            { title: "递增数列", type: "数学/贪心", core: "贪心算法", detail: "将非递增数列变为严格递增数列，每次给一个数加d，求最少操作次数", level: "GESP三级", subject: "数学：贪心算法应用——贪心策略的实际场景运用" },
+            { title: "限号", type: "模拟", core: "模拟算法", detail: "判断一组车牌号是否覆盖周一至周五的限行尾号", level: "GESP三级", subject: "数学：模拟算法应用——贪心策略的实际场景运用" },
+            { title: "冬季运动", type: "记忆化搜索/DFS", core: "深度优先搜索", detail: "在二维矩阵中找到最长的一条严格递减的路径（滑雪问题）", level: "GESP五级", subject: "数学：深度优先搜索应用——贪心策略的实际场景运用" },
+            { title: "古老王国的幸运数", type: "区间DP", core: "动态规划", detail: "将字符串转换后（大写转小写，小写后移3位），求解最长回文子序列的长度", level: "GESP五级", subject: "数学：动态规划应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "13-计算机基础知识", topics: [
+            { title: "理论知识讲解", type: "理论基础", core: "计算机基础", detail: "计算机发展史（ENIAC、冯·诺依曼）、著名人物（图灵、香农）、硬件系统（CPU、存储器、总线）、软件系统（操作系统、编译器）、信息编码（ASCII、原码反码补码、格雷码）、计算机网络（TCP/IP、IP地址、域名）、编程语言发展史", level: "GESP无", subject: "数学：计算机基础应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "14-数据结构（一）(初赛)", topics: [
+            { title: "理论知识讲解", type: "理论基础", core: "数据结构", detail: "栈（先进后出）、队列（先进先出）、链表（单链表、双向链表）、波兰表达式（前缀/后缀表达式转换与求值）、数据结构基础概念", level: "GESP无", subject: "数学：数据结构应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "15-数据结构（二）(初赛)", topics: [
+            { title: "二叉树的概念与性质", type: "初赛", core: "二叉树基础", detail: "树的基本概念：结点、度、深度/高度\n二叉树定义：每个结点最多两个子树\n二叉树第i层最多2^(i-1)个结点\n度为2的结点数 = 叶子结点数 - 1\n三叉树/完全二叉树结点数计算", level: "CSP-J", subject: "数学：二叉树基础应用——贪心策略的实际场景运用" },
+            { title: "二叉树的遍历", type: "初赛", core: "二叉树遍历", detail: "三种遍历方式：\n先序遍历（根左右）→ 第一个点是根结点\n中序遍历（左根右）→ 根结点划分左右子树\n后序遍历（左右根）→ 最后一个点是根结点\n已知中序+先序/后序可唯一确定二叉树", level: "CSP-J", subject: "数学：二叉树遍历应用——贪心策略的实际场景运用" },
+            { title: "完全二叉树与顺序存储", type: "初赛", core: "二叉树存储", detail: "完全二叉树性质：用一维数组存储，根结点下标为1\n若结点下标为i：左孩子=2i，右孩子=2i+1\n父结点=i/2（向下取整）\n数组第9位结点的兄弟与子结点位置判断\n具有n层满二叉树的结点总数=2^n - 1", level: "CSP-J", subject: "数学：二叉树存储应用——贪心策略的实际场景运用" },
+            { title: "哈夫曼编码", type: "初赛", core: "编码理论", detail: "前缀编码概念：任一字符的编码不是其他编码的前缀\n哈夫曼树的构建过程：每次选频率最小的两棵合并\nWPL（带权路径长度）计算\n给定频率求某字符的Huffman编码长度\n编码总长度 = 各字符频率 × 编码长度之和", level: "CSP-J", subject: "数学：编码理论应用——贪心策略的实际场景运用" },
+            { title: "图的基本概念", type: "初赛", core: "图论基础", detail: "图的基本概念：顶点、边、有向/无向、度\n连通图与连通分量\n邻接矩阵：n个顶点的有向连通图至少n-1个非零元\n图的深度优先遍历（DFS）用栈实现\n广度优先遍历（BFS）用队列实现", level: "CSP-J", subject: "数学：图论基础应用——贪心策略的实际场景运用" },
+            { title: "数据结构初赛真题演练", type: "初赛", core: "真题实战", detail: "二叉树遍历序列互推\n完全二叉树结点编号计算\n哈夫曼编码长度与频率分析\n图论基础判断题与选择题\n阅读程序——数据结构专项题型解剖\n完善程序——数据结构专项题型解剖", level: "CSP-J", subject: "数学：真题实战应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "16-数学专题1(初赛)", topics: [
+            { title: "理论知识讲解", type: "理论基础", core: "数学基础", detail: "加乘原理（加法原理分类完成、乘法原理分步完成）；排列（排列数计算公式、相邻问题捆绑法、不相邻问题插空法/逆向法、环形排列）；组合（组合数计算公式、组合与排列的区别）；隔板法；进制转换（二/八/十/十六进制互转、小数进制转换）；数学函数（ceil、floor、abs、pow、sqrt等）", level: "GESP三级", subject: "数学：数学基础应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "17-数学专题2(初赛)", topics: [
+            { title: "理论知识讲解", type: "理论基础", core: "数学基础", detail: "波兰表达式（前缀/后缀表达式转换与求值）；位运算符（&、|、^、<<、>>、~、优先级）；初等数论（整除、约数、倍数、质数、合数、最大公约数、辗转相除法）", level: "GESP三级", subject: "数学：数学基础应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "18-字符串专题(初赛)", topics: [
+            { title: "理论知识讲解", type: "理论基础", core: "字符串", detail: "ASCII编码（'0'=48、'A'=65、'a'=97）；字符串存储（字符数组、string类型、cin.getline/getline）；字符串操作函数；阅读程序题型训练", level: "GESP三级", subject: "数学：字符串应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "19-二分算法专题", topics: [
+            { title: "切割木材", type: "二分答案", core: "二分算法", detail: "在单调数据范围中查找满足条件的最大值，判断条件明确但目标不明确", level: "GESP四级", subject: "数学：二分算法应用——贪心策略的实际场景运用" },
+            { title: "寻找被移除的元素", type: "二分查找", core: "二分算法", detail: "在长度为n的数组中查找被移除的元素，利用等差数列性质进行二分", level: "GESP四级", subject: "数学：二分算法应用——贪心策略的实际场景运用" },
+            { title: "给定的和", type: "二分查找", core: "二分算法", detail: "在数组中查找两个数和为m的数对，排序后二分查找", level: "GESP四级", subject: "数学：二分算法应用——贪心策略的实际场景运用" },
+            { title: "矩形计数", type: "二分查找/枚举", core: "二分算法", detail: "平面上n个关键点，统计四条边与坐标轴平行的矩形数量，用二分查找验证顶点存在", level: "GESP五级", subject: "数学：二分算法应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "20-排序专题(初赛)", topics: [
+            { title: "理论知识讲解", type: "理论基础", core: "排序算法", detail: "冒泡排序（相邻比较、每轮冒出一个最大/最小值）；选择排序（每轮选最小值放到最前面）；插入排序（将元素插入已排序序列的恰当位置）；桶排序（数据作下标、计数、顺序/逆序输出）；快速排序（基准值划分、递归排序）；归并排序（拆分合并、递归实现）；排序算法对比（时间复杂度、稳定性）", level: "GESP三级", subject: "数学：排序算法应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "21-递归专题", topics: [
+            { title: "数的计数", type: "递归/记忆化搜索", core: "递归、递推", detail: "在左边加上不超过原数一半的自然数，统计合法数列个数，用记忆化搜索优化", level: "GESP四级", subject: "数学：递归、递推应用——贪心策略的实际场景运用" },
+            { title: "最大公约数之和", type: "递归/数学", core: "最大公约数", detail: "求整数n的所有约数两两之间最大公约数的和，对10007取余；用辗转相除法求gcd", level: "GESP四级", subject: "数学：最大公约数应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "22-动态规划（初赛）-新版", topics: [
+            { title: "台阶走法问题", type: "编程题", core: "动态规划基础", detail: "斐波那契数列递推，状态转移方程 dp[i] = dp[i-1] + dp[i-2]", level: "GESP六级", subject: "数学：动态规划基础应用——贪心策略的实际场景运用" },
+            { title: "最大子段和", type: "编程题", core: "动态规划、贪心", detail: "在线处理算法（Kadane算法），dp[i] = max(dp[i-1] + a[i], a[i])", level: "GESP六级", subject: "数学：动态规划、贪心应用——贪心策略的实际场景运用" },
+            { title: "最长上升子序列", type: "编程题", core: "动态规划、序列处理", detail: "双重循环DP，状态转移 dp[i] = max(dp[j] + 1)，求解序列中严格递增的最长子序列长度", level: "GESP七级", subject: "数学：动态规划、序列处理应用——贪心策略的实际场景运用" },
+            { title: "最长公共子序列", type: "编程题", core: "动态规划、字符串处理", detail: "二维DP，状态转移方程 dp[i][j] = dp[i-1][j-1] + 1（匹配）或 max(dp[i-1][j], dp[i][j-1])（不匹配）", level: "GESP七级", subject: "数学：动态规划、字符串处理应用——贪心策略的实际场景运用" },
+            { title: "零一背包问题", type: "编程题", core: "动态规划、背包问题", detail: "一维/二维DP，倒序枚举容量，状态转移 dp[j] = max(dp[j], dp[j-w[i]] + v[i])", level: "GESP七级", subject: "数学：动态规划、背包问题应用——贪心策略的实际场景运用" },
+            { title: "完全背包问题", type: "编程题", core: "动态规划、背包问题", detail: "一维DP，正序枚举容量，状态转移 dp[j] = max(dp[j], dp[j-w[i]] + v[i])", level: "GESP七级", subject: "数学：动态规划、背包问题应用——贪心策略的实际场景运用" },
+            { title: "石子合并", type: "编程题", core: "区间动态规划", detail: "枚举区间长度和分割点，状态转移 dp[i][j] = min(dp[i][k] + dp[k+1][j] + sum(i,j))", level: "GESP八级", subject: "数学：区间动态规划应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "23-初赛模拟比赛-新版", topics: [
+            { title: "编辑距离", type: "编程题", core: "动态规划、字符串处理", detail: "二维DP，三种操作（插入、删除、替换）的转移，dp[i][j] = min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1", level: "GESP八级", subject: "数学：动态规划、字符串处理应用——贪心策略的实际场景运用" },
+            { title: "十六进制转八进制", type: "编程题", core: "进制转换、字符串处理", detail: "逐位十六进制转二进制，再按三位一组转八进制，处理前导零", level: "GESP六级", subject: "数学：进制转换、字符串处理应用——贪心策略的实际场景运用" },
+            { title: "购票排队方案计数", type: "编程题", core: "深度优先搜索、组合数学", detail: "DFS模拟找零过程，或推导卡特兰数公式，计数合法排队方案", level: "GESP七级", subject: "数学：深度优先搜索、组合数学应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "24-初赛模拟比赛-新版", topics: [
+            { title: "查找插入位置", type: "编程题", core: "二分查找、数组处理", detail: "在升序数组中查找目标，若不存在则返回其应插入的位置（左边界）", level: "GESP六级", subject: "数学：二分查找、数组处理应用——贪心策略的实际场景运用" },
+            { title: "数字生成（质因子判定）", type: "编程题", core: "数论、集合搜索", detail: "逆向思维，判断一个数是否能只由质因子二和五构成", level: "GESP六级", subject: "数学：数论、集合搜索应用——贪心策略的实际场景运用" },
+            { title: "质数生成树计数", type: "编程题", core: "深度优先搜索、数论", detail: "DFS枚举数字，首位从特定质数集合取，后续位从单数集合取，检查质数性并计数", level: "GESP七级", subject: "数学：深度优先搜索、数论应用——贪心策略的实际场景运用" },
+            { title: "最长因子链计数", type: "编程题", core: "动态规划、数论", detail: "分解因子并排序，状态转移 dp[i] = max(dp[j] + 1)，求最长整除链长度及个数", level: "GESP八级", subject: "数学：动态规划、数论应用——贪心策略的实际场景运用" },
+            { title: "字符串矩阵重排", type: "编程题", core: "字符串处理、二维数组", detail: "按列优先读取字符串存入二维数组，再按行优先输出，实现矩阵转置功能", level: "GESP六级", subject: "数学：字符串处理、二维数组应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "25-CSP-J初赛真题解析（一）", topics: [
+            { title: "2019年CSP-J初赛真题精讲（一）", type: "初赛真题", core: "单选题·基础部分", detail: "计算机基础知识（硬件组成、存储单位、文件系统）\n进制转换、原码反码补码、位运算基础\n2019年真题逐题精讲", level: "CSP-J", subject: "数学：单选题·基础部分应用——贪心策略的实际场景运用" },
+            { title: "2019年CSP-J初赛真题精讲（二）", type: "初赛真题", core: "阅读程序·完善程序", detail: "2019·阅读程序：循环模拟、字符串处理、递归函数\n2019·完善程序：排序算法补全、搜索算法补全\n代码填空解题技巧", level: "CSP-J", subject: "数学：阅读程序·完善程序应用——贪心策略的实际场景运用" },
+            { title: "2020年CSP-J初赛真题精讲（一）", type: "初赛真题", core: "单选题·综合部分", detail: "数据结构：栈、队列、链表\n二叉树性质与遍历\n排序算法稳定性与复杂度、表达式求值\n2020年真题逐题精讲", level: "CSP-J", subject: "数学：单选题·综合部分应用——贪心策略的实际场景运用" },
+            { title: "2020年CSP-J初赛真题精讲（二）", type: "初赛真题", core: "阅读程序·完善程序", detail: "2020·阅读程序：位运算、递推与递归、DP类程序阅读\n2020·完善程序：贪心算法补全、搜索与回溯框架\n典型陷阱分析", level: "CSP-J", subject: "数学：阅读程序·完善程序应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "26-CSP-J初赛真题解析（二）", topics: [
+            { title: "2021年CSP-J初赛真题精讲（一）", type: "初赛真题", core: "单选题·基础与算法", detail: "面向对象基础：类与对象、封装继承多态\n指针与引用、递归与递推辨析\n图论基础概念\n2021年真题逐题精讲", level: "CSP-J", subject: "数学：单选题·基础与算法应用——贪心策略的实际场景运用" },
+            { title: "2021年CSP-J初赛真题精讲（二）", type: "初赛真题", core: "阅读程序·完善程序", detail: "2021·阅读程序：浮点误差与精度、矩阵运算模拟、数学递推公式\n2021·完善程序：二分查找变体、区间覆盖问题\n高频考点总结", level: "CSP-J", subject: "数学：阅读程序·完善程序应用——贪心策略的实际场景运用" },
+            { title: "2022年CSP-J初赛真题精讲（一）", type: "初赛真题", core: "单选题·核心考点", detail: "链表与数组区别、栈的合法出栈序列\n前缀/后缀表达式转换\n哈夫曼编码与WPL计算\n完全二叉树结点编号性质\n2022真题精讲", level: "CSP-J", subject: "数学：单选题·核心考点应用——贪心策略的实际场景运用" },
+            { title: "2022年CSP-J初赛真题精讲（二）", type: "初赛真题", core: "阅读程序·完善程序", detail: "2022·阅读程序：位运算分治法\n鸡蛋掉落问题的记忆化搜索\n牛顿迭代法求平方根\n2022·完善程序：枚举因数 + 洪水填充BFS\n多选题策略", level: "CSP-J", subject: "数学：阅读程序·完善程序应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "27-CSP-J初赛真题解析（三）", topics: [
+            { title: "2023年CSP-J初赛真题精讲（一）", type: "初赛真题", core: "单选题", detail: "Linux系统命令：ls/cd/mkdir/cp/mv/chmod等\n文件扩展名含义、计算机发展史\n数据类型与溢出、图的度与握手定理\n2023真题逐题精讲", level: "CSP-J", subject: "数学：单选题应用——贪心策略的实际场景运用" },
+            { title: "2023年CSP-J初赛真题精讲（二）", type: "初赛真题", core: "单选题·算法基础", detail: "时间复杂度分析（多层循环、递归）\n二分查找与二分答案模板\n链表结点插入与删除操作\n有向图邻接矩阵非零元素计数", level: "CSP-J", subject: "数学：单选题·算法基础应用——贪心策略的实际场景运用" },
+            { title: "2023年CSP-J初赛真题精讲（三）", type: "初赛真题", core: "阅读程序", detail: "2023·阅读程序：循环嵌套的复杂度模拟\n递推函数的递归展开、数学归纳法验证\n阅读程序'变量追踪表'解题法教学", level: "CSP-J", subject: "数学：阅读程序应用——贪心策略的实际场景运用" },
+            { title: "2023年CSP-J初赛真题精讲（四）", type: "初赛真题", core: "完善程序", detail: "2023·完善程序：二分查找左右边界变体\n贪心 + 动态规划综合补全\n完善程序'上下文逻辑推导'解题法\n代码补全题的常见线索", level: "CSP-J", subject: "数学：完善程序应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "28-CSP-J初赛真题解析（四）", topics: [
+            { title: "2024年CSP-J初赛真题精讲（一）", type: "初赛真题", core: "单选题·基础部分", detail: "操作系统与网络基础：IP地址、DNS、HTTP协议\n编译原理基础：词法分析/语法分析/语义分析\n排序算法综合辨析\n2024真题", level: "CSP-J", subject: "数学：单选题·基础部分应用——贪心策略的实际场景运用" },
+            { title: "2024年CSP-J初赛真题精讲（二）", type: "初赛真题", core: "单选题·数据结构与算法", detail: "前缀表达式与前缀和联系\n二叉树遍历：前序/中序/后序/层序\n图的存储方式比较：邻接矩阵 vs 邻接表\n动态规划与贪心区别", level: "CSP-J", subject: "数学：单选题·数据结构与算法应用——贪心策略的实际场景运用" },
+            { title: "2024年CSP-J初赛真题精讲（三）", type: "初赛真题", core: "阅读程序", detail: "2024·阅读程序：字符串处理与模式匹配\n分治与归并、状态机模拟\n复杂程序'分块阅读法'——先定位主函数、再逐函数分析", level: "CSP-J", subject: "数学：阅读程序应用——贪心策略的实际场景运用" },
+            { title: "2024年CSP-J初赛真题精讲（四）", type: "初赛真题", core: "完善程序", detail: "2024·完善程序：DP状态转移补全\nBFS搜索框架补全\n完善程序'前后呼应检查法'——利用输入输出和全局变量反推缺失代码", level: "CSP-J", subject: "数学：完善程序应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "29-CSP-J初赛真题解析（五）", topics: [
+            { title: "2025年CSP-J初赛真题精讲（一）", type: "初赛真题", core: "单选题·基础", detail: "32位无符号整数范围\n数据类型与内存、进制转换（含负进制）\nC++运算符优先级与结合性\n程序运行内存模型\n2025真题", level: "CSP-J", subject: "数学：单选题·基础应用——贪心策略的实际场景运用" },
+            { title: "2025年CSP-J初赛真题精讲（二）", type: "初赛真题", core: "单选题·综合", detail: "组合数学：排列组合/容斥原理\n概率基础、时间复杂度计算\nSTL容器特点：vector/queue/stack/set/map\n哈希表与冲突处理", level: "CSP-J", subject: "数学：单选题·综合应用——贪心策略的实际场景运用" },
+            { title: "2025年CSP-J初赛真题精讲（三）", type: "初赛真题", core: "阅读程序", detail: "2025·阅读程序：递推与状态转移\n树的遍历递归实现、数学公式的递推求值\n'从输出反推过程'的高效解题法\n避免逐行死算", level: "CSP-J", subject: "数学：阅读程序应用——贪心策略的实际场景运用" },
+            { title: "2025年CSP-J初赛真题精讲（四）", type: "初赛真题", core: "完善程序", detail: "2025·完善程序：拓扑排序 / 计数类DP补全\n'边界条件优先检查法'——先确定循环边界和初始化\n再填算法核心逻辑", level: "CSP-J", subject: "数学：完善程序应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "30-CSP-J初赛专题突破", topics: [
+            { title: "历年单选题高频考点归纳", type: "初赛真题", core: "考点归纳", detail: "计算机常识：厂商/年份/事件\n进制转换速算技巧\nC++语法易错点：const/static/引用/auto\n数据结构的性质对比表\n一页纸记住所有考点", level: "CSP-J", subject: "数学：考点归纳应用——贪心策略的实际场景运用" },
+            { title: "历年阅读程序题型分类与解题模板", type: "初赛真题", core: "解题技巧", detail: "题型一：纯循环模拟（手工制表法）\n题型二：递归递推（反向代入法）\n题型三：数学公式类（归纳猜想法）\n题型四：DP/搜索（函数目的推断法）", level: "CSP-J", subject: "数学：解题技巧应用——贪心策略的实际场景运用" },
+            { title: "历年完善程序解题技巧", type: "初赛真题", core: "解题技巧", detail: "题型一：排列组合类 → 关注边界条件\n题型二：搜索模板类 → 先判断框架再定细节\n题型三：DP转移类 → 关注max/min和下标变化\n题型四：数学公式类 → 关注变量初始化", level: "CSP-J", subject: "数学：解题技巧应用——贪心策略的实际场景运用" },
+            { title: "初赛时间分配与答题策略", type: "初赛真题", core: "考试策略", detail: "120分钟答题节奏：\n　单选25分钟 / 阅读程序50分钟 / 完善程序35分钟 / 检查10分钟\n不会的题标记跳过、单选题善用排除法\n阅读程序先看输出语句", level: "CSP-J", subject: "数学：考试策略应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "31-CSP-J复赛真题解析——T1专题", topics: [
+            { title: "2019 T1 数字游戏 & 2020 T1 优秀的拆分", type: "复赛真题", core: "基础编程", detail: "【2019 T1 数字游戏】统计字符串中字符'1'的个数\n　→ 考察字符串遍历与计数\n【2020 T1 优秀的拆分】将n拆分为互不相同的2的正整数次幂\n　→ 考察位运算与枚举\nT1拿满分的正确姿势", level: "CSP-J", subject: "数学：基础编程应用——贪心策略的实际场景运用" },
+            { title: "2021 T1 分糖果 & 2022 T1 乘方", type: "复赛真题", core: "基础编程", detail: "【2021 T1 分糖果】在区间[l,r]中选一个数使得mod n最大\n　→ 考察数学推导避免枚举\n【2022 T1 乘方】判断a^b是否超过1e9\n　→ 考察快速幂与long long溢出处理", level: "CSP-J", subject: "数学：基础编程应用——贪心策略的实际场景运用" },
+            { title: "2023 T1 小苹果 & 2024 T1 扑克牌", type: "复赛真题", core: "基础编程", detail: "【2023 T1 小苹果】每3个取1个的周期操作模拟\n　→ 考察数学归纳与等比例缩减\n【2024 T1 扑克牌】统计缺失的扑克牌数量\n　→ 考察集合去重与哈希表\nT1核心：细心 + 稳拿100分", level: "CSP-J", subject: "数学：基础编程应用——贪心策略的实际场景运用" },
+            { title: "2025 T1 拼数", type: "复赛真题", core: "基础编程", detail: "【2025 T1 拼数】从包含字母和数字的字符串中提取所有连续数字并排序输出\n　→ 考察字符串解析、数字提取、排序与去重\nT1趋势：逐年增加字符串处理维度", level: "CSP-J", subject: "数学：基础编程应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "32-CSP-J复赛真题解析——T2专题", topics: [
+            { title: "2019 T2 公交换乘 & 2020 T2 直播获奖", type: "复赛真题", core: "模拟算法", detail: "【2019 T2 公交换乘】模拟公交+地铁的优惠换乘策略\n　→ 考察队列模拟与条件判断\n【2020 T2 直播获奖】实时输出第p%大的成绩\n　→ 考察对顶堆 / 桶计数\nT2核心：模拟 + 数据结构", level: "CSP-J", subject: "数学：模拟算法应用——贪心策略的实际场景运用" },
+            { title: "2021 T2 插入排序 & 2022 T2 解密", type: "复赛真题", core: "模拟算法", detail: "【2021 T2 插入排序】对部分有序数组进行插入排序操作\n　→ 考察排序过程模拟与实际运行\n【2022 T2 解密】解二元二次方程组\n　→ 考察数学推导转化为O(1)计算", level: "CSP-J", subject: "数学：模拟算法应用——贪心策略的实际场景运用" },
+            { title: "2023 T2 公路 & 2024 T2 地图探险", type: "复赛真题", core: "模拟算法", detail: "【2023 T2 公路】加油站问题——选择最便宜的油量策略\n　→ 考察贪心 + 前缀最小值\n【2024 T2 地图探险】机器人按指令在网格图移动\n　→ 考察方向数组模拟与集合去重", level: "CSP-J", subject: "数学：模拟算法应用——贪心策略的实际场景运用" },
+            { title: "2025 T2 座位", type: "复赛真题", core: "模拟算法", detail: "【2025 T2 座位】按成绩排序分配考场座位\n　→ 考察排序 + 二维矩阵映射\nT2趋势：模拟题逐渐融合简单算法（贪心/排序），不再是纯模拟", level: "CSP-J", subject: "数学：模拟算法应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "33-CSP-J复赛真题解析——T3专题", topics: [
+            { title: "2019 T3 纪念品 & 2020 T3 表达式", type: "复赛真题", core: "中等算法", detail: "【2019 T3 纪念品】背包DP的变体——每天买卖纪念品最大化收益\n　→ 考察完全背包 + 多阶段DP\n【2020 T3 表达式】后缀表达式求值 + 取反操作影响分析\n　→ 考察表达式树 + DFS", level: "CSP-J", subject: "数学：中等算法应用——贪心策略的实际场景运用" },
+            { title: "2021 T3 网络连接 & 2022 T3 逻辑表达式", type: "复赛真题", core: "中等算法", detail: "【2021 T3 网络连接】检查IP地址与端口合法性\n　→ 考察字符串解析 + STL map应用\n【2022 T3 逻辑表达式】短路求值模拟\n　→ 考察递归解析 + 表达式树遍历", level: "CSP-J", subject: "数学：中等算法应用——贪心策略的实际场景运用" },
+            { title: "2023 T3 一元二次方程 & 2024 T3 小木棍", type: "复赛真题", core: "中等算法", detail: "【2023 T3 一元二次方程】求解并按要求格式化输出\n　→ 考察数学分类讨论 + 输出格式控制\n【2024 T3 小木棍】贪心构造最小的数字\n　→ 考察BFS + 最短路径思想", level: "CSP-J", subject: "数学：中等算法应用——贪心策略的实际场景运用" },
+            { title: "2025 T3 异或和", type: "复赛真题", core: "中等算法", detail: "【2025 T3 异或和】统计区间异或和满足条件的个数\n　→ 考察前缀异或 + map / 哈希\nT3趋势：数学 + 算法复合型，需要扎实的建模能力", level: "CSP-J", subject: "数学：中等算法应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "34-CSP-J复赛真题解析——T4专题", topics: [
+            { title: "2019 T4 加工零件 & 2020 T4 方格取数", type: "复赛真题", core: "高级算法", detail: "【2019 T4 加工零件】有向图的奇偶最短路\n　→ 考察分层图 / 奇偶BFS\n【2020 T4 方格取数】网格行走最大和\n　→ 考察DP + 反向思维（从右下往左上DP避免后效性）", level: "CSP-J", subject: "数学：高级算法应用——贪心策略的实际场景运用" },
+            { title: "2021 T4 小熊的果篮 & 2022 T4 上升点列", type: "复赛真题", core: "高级算法", detail: "【2021 T4 小熊的果篮】分块模拟水果合并操作\n　→ 考察链表/并查集模拟 + 分块思想\n【2022 T4 上升点列】二维偏序DP + 优化\n　→ 考察排序 + 动态规划 + 树状数组/二分优化", level: "CSP-J", subject: "数学：高级算法应用——贪心策略的实际场景运用" },
+            { title: "2023 T4 旅游巴士 & 2024 T4 接龙", type: "复赛真题", core: "高级算法", detail: "【2023 T4 旅游巴士】带时间限制的最短路\n　→ 考察分层图BFS / DP + 最短路\n【2024 T4 接龙】多人多轮的序列接龙是否存在\n　→ 考察图论建模 + 记忆化搜索/DP", level: "CSP-J", subject: "数学：高级算法应用——贪心策略的实际场景运用" },
+            { title: "2025 T4 多边形", type: "复赛真题", core: "高级算法", detail: "【2025 T4 多边形】选取若干木棍拼成多边形\n　→ 考察排序 + 三角形不等式 + 贪心/DP\nT4趋势：图论与DP交替出现\n部分分策略（暴力30-60分）至关重要", level: "CSP-J", subject: "数学：高级算法应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "35-CSP-J复赛综合冲刺", topics: [
+            { title: "四题模拟训练与时间分配", type: "复赛真题", core: "实战演练", detail: "210分钟完整模拟：\n　T1 30分钟稳拿100分（文件读写 + 样例测试）\n　T2 40分钟（模拟实现 + 边界测试）\n　T3 60分钟（建模 + 调试）\n　T4 60分钟（部分分 + 优化）\n　最后20分钟全局检查", level: "CSP-J", subject: "数学：实战演练应用——贪心策略的实际场景运用" },
+            { title: "复赛高频踩坑点总结", type: "复赛真题", core: "避坑指南", detail: "freopen必须写对路径\nint溢出用long long\n数组大小至少扩大10个空间\nSTL操作注意复杂度\n多组数据必须重置\n输出格式（换行/空格）必须严格匹配", level: "CSP-J", subject: "数学：避坑指南应用——贪心策略的实际场景运用" },
+            { title: "对拍验证与调试技巧", type: "复赛真题", core: "调试技巧", detail: "暴力对拍法：写暴力代码与优化代码对比输出\n中间变量输出法定位bug\n边界数据构造方法：最小值 / 最大值 / 特殊情况\n考前自检清单模板", level: "CSP-J", subject: "数学：调试技巧应用——贪心策略的实际场景运用" },
+            { title: "部分分获取策略", type: "复赛真题", core: "得分策略", detail: "特判特殊性质：n=1 / n<=10 / 特殊排列\n暴力枚举拿前30%-50%分\n子任务分段处理：不同数据范围用不同算法\n'能做多少做多少'心态调整\n不要在一道题上卡太久", level: "CSP-J", subject: "数学：得分策略应用——贪心策略的实际场景运用" },
+        ]},
+        { name: "36-参赛相关", topics: [
+            { title: "NOI竞赛环境介绍", type: "考试规范", core: "竞赛环境", detail: "CSP-J/S复赛官方环境：NOI Linux 2.0\n部分省份仅支持Linux环境\nWindows + Linux双系统策略：\n启动虚拟机并保持开启（不可关闭）\n登录账户后进入考试文档\n查找编辑器（CodeBlocks）", level: "CSP-J", subject: "数学：竞赛环境应用——贪心策略的实际场景运用" },
+            { title: "CodeBlocks编译器的使用", type: "考试规范", core: "IDE操作", detail: "新建空白文件、编辑区操作\n保存文件：文件夹名=准考证号\n文件名要求（如poker.cpp、explore.cpp等）\n*号表示未保存，需先保存再运行\n编译运行：Build → Run\n调试功能需先新建Project", level: "CSP-J", subject: "数学：IDE操作应用——贪心策略的实际场景运用" },
+            { title: "文件操作基础", type: "考试规范", core: "文件读写", detail: "ifstream fin('xxx.in') 读取输入文件\nofstream fout('xxx.out') 输出到文件\n文件路径与命名规范\n文件关闭：fin.close() / fout.close()\nlinux/windows文件路径区别", level: "CSP-J", subject: "数学：文件读写应用——贪心策略的实际场景运用" },
+            { title: "freopen标准写法", type: "考试规范", core: "文件操作", detail: "freopen('题目名.in', 'r', stdin)\nf reopen('题目名.out', 'w', stdout)\n写在main函数第一行\n提交前务必删除调试用的输出语句\n检查文件名与文件格式是否与题目要求一致", level: "CSP-J", subject: "数学：文件操作应用——贪心策略的实际场景运用" },
+            { title: "时间复杂度分析", type: "考试规范", core: "算法分析", detail: "常见时间复杂度：O(1)/O(n)/O(n²)/O(logn)/O(nlogn)\n循环嵌套的复杂度计算\n根据数据范围估算允许的时间复杂度\nn≤1000 → O(n²)可通过\nn≤10^5 → O(nlogn)可通过\nn≤10^7 → O(n)可通过", level: "CSP-J", subject: "数学：算法分析应用——贪心策略的实际场景运用" },
+            { title: "复赛代码提交规范", type: "考试规范", core: "提交规范", detail: "目录结构：准考证号文件夹 → 各题.cpp文件\n代码文件存放位置需根据考场要求\n部分省份提供提前建好的文件夹\n提交前检查清单：\n文件名是否正确 / freopen是否写对 / 是否删除了调试输出", level: "CSP-J", subject: "数学：提交规范应用——贪心策略的实际场景运用" },
+            { title: "复赛注意事项总结", type: "考试规范", core: "考试要点", detail: "考试纪律与入场要求（以各省通知为准）\n考试时间：4小时（08:30-12:00）\n每个题目独立提交，互不影响\n合理利用规则：部分分策略（暴力枚举拿基本分）\n先做简单题，难题留后\n考前休息好，保持良好心态", level: "CSP-J", subject: "数学：考试要点应用——贪心策略的实际场景运用" },
+        ]},
+    ];
+
+
+    function renderLessons(containerId, lessons, offset = 0) {
+        const container = document.getElementById(containerId);
         let html = '';
-        lessonsData.forEach((lesson, idx) => {
-            const lessonNumber = (idx+1).toString().padStart(2,'0');
-            html += `<div class="lesson-card" data-lesson="${idx}">
-                        <div class="lesson-header" onclick="toggleLesson(${idx})">
+        lessons.forEach((lesson, idx) => {
+            const lessonNumber = (idx + 1 + offset).toString().padStart(2,'0');
+            html += `<div class="lesson-card" data-lesson="${idx}" data-container="${containerId}">
+                        <div class="lesson-header" onclick="toggleLessonCard(this)">
                             <div class="lesson-name"><span class="lesson-num">第${lessonNumber}课</span><span>${lesson.name}</span></div>
                             <i class="fas fa-chevron-down toggle-icon"></i>
                         </div>
@@ -1048,7 +1684,6 @@
             else icon.style.transform = 'rotate(0deg)';
         }
     };
-    renderLessons();
     
     let teacherCurrentPage = 0;
     let teacherTotalPages = 1;
@@ -1072,6 +1707,64 @@
         }
         updateCarouselDisplay();
     }
+
+
+    function showStage(stage) {
+        document.querySelectorAll('.stage-tab').forEach(tab => tab.classList.remove('active'));
+        document.querySelectorAll('.stage-section').forEach(section => section.classList.remove('active'));
+        
+        const tabIndex = stage === 'l1' ? 0 : stage === 'l2' ? 1 : stage === 'l3' ? 2 : 3;
+        document.querySelectorAll('.stage-tab')[tabIndex].classList.add('active');
+        document.getElementById('stage-' + stage).classList.add('active');
+        
+        if (stage === 'l1') {
+            renderLessons('lessonsContainerL1', l1Lessons);
+        } else if (stage === 'l2') {
+            renderLessons('lessonsContainerL2', l2Lessons, 36);
+        } else if (stage === 'l3') {
+            renderLessons('lessonsContainerL3', l3Lessons, 72);
+        } else {
+            renderLessons('lessonsContainerAll', [...l1Lessons, ...l2Lessons, ...l3Lessons]);
+        }
+    }
+
+    function toggleLessonCard(header) {
+        const card = header.parentElement;
+        card.classList.toggle('expanded');
+        const icon = header.querySelector('.toggle-icon');
+        if(card.classList.contains('expanded')) {
+            icon.style.transform = 'rotate(180deg)';
+        } else {
+            icon.style.transform = 'rotate(0deg)';
+        }
+    }
+
+    function setupScrollAnimations() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.lesson-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    }
+
+    window.addEventListener('load', () => {
+        renderLessons('lessonsContainerL1', l1Lessons);
+        initTeacherCarousel();
+        setupScrollAnimations();
+    });
 
     function updateCarouselDisplay() {
         const track = document.getElementById('teachersTrack');
